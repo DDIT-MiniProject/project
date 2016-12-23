@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -83,7 +84,7 @@ font-size: 30pt;
 						<td>내용 </td>
 						<td><textarea name="bContent" rows="10" ></textarea> </td>
 					</tr>
-					<tr >
+					<tr>
 						<td colspan="2"> <input type="submit" value="입력"> &nbsp;&nbsp; <a href="qnaNotice.do">목록보기</a></td>
 					</tr>
 				</table>

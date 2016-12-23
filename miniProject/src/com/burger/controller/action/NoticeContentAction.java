@@ -22,7 +22,7 @@ public class NoticeContentAction implements Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String url = "qna/notice/notice_content.jsp";
-		
+		request.setCharacterEncoding("utf-8");
 		HttpSession session = request.getSession();
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 		

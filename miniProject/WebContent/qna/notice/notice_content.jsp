@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -96,7 +97,23 @@ font-size: 10pt;
 				<td> <textarea rows="10" name="bContent" >${content_view.bContent}</textarea></td>
 			</tr>
 			<tr >
-				<td colspan="2"> <input type="submit" value="수정"> &nbsp;&nbsp; <a href="qnaNotice.do">목록보기</a> &nbsp;&nbsp; <a href="delete.do?bId=${content_view.bId}">삭제</a> &nbsp;&nbsp;</td>
+				<td colspan="2"> 
+
+					<input type="submit" value="수정"> &nbsp;&nbsp; 
+				<a href="qnaNotice.do">목록보기
+				</a> &nbsp;&nbsp; 
+		
+				
+		
+				
+				
+				
+				
+				
+				
+				
+				
+				&nbsp;&nbsp;</td>
 			</tr>
 		</form>
 	</table>

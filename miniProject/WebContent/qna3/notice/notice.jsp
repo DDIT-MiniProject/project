@@ -89,22 +89,22 @@ font-size: 10pt;
 			<td>${dto.bName}</td>
 			<td>
 				<c:forEach begin="1" end="${dto.bIndent}">-</c:forEach>
-				<a href="content_view.do?bId=${dto.bId}">${dto.bTitle}</a></td>
+				<a href="content_view2.do?bId=${dto.bId}">${dto.bTitle}</a></td>
 			<td>${dto.bDate}</td>
 			<td>${dto.bHit}</td>
 		</tr>
 		</c:forEach>
-		
-		<!-- admin일때와 아닐때 -->
-		<c:if test="${!empty id && id eq 'admin'}">
-			<td colspan="5"> <a href="write_view.do">글작성</a> </td>
-		</c:if>
-					
-		
 		<tr>
-		<!-- 	<td colspan="5"> <a href="write_view.do">글작성</a> </td> -->
+			<td colspan="5"> <a href="write_view2.do">글작성</a> </td>
 		</tr>
 	</table>
+				  
+				  
+				  
+				  
+               
+            
+            
             
 	         </div>
 	      </div>
