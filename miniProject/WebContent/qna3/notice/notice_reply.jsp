@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -46,7 +45,7 @@
    border: 1px solid blue;
 }
 #abc{
-font-size: 10pt;
+font-size: 30pt;
 
 }
 
@@ -75,43 +74,38 @@ font-size: 10pt;
            
             <div class="col-sm-8 text-left">
           
-               <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
-		<tr>
-			<td>번호</td>
-			<td>이름</td>
-			<td>제목</td>
-			<td>날짜</td>
-			<td>히트</td>
-		</tr>
-		<c:forEach items="${list}" var="dto">
-		<tr>
-			<td>${dto.bId}</td>
-			<td>${dto.bName}</td>
-			<td>
-				<c:forEach begin="1" end="${dto.bIndent}">-</c:forEach>
-				<a href="content_view.do?bId=${dto.bId}">${dto.bTitle}</a></td>
-			<td>${dto.bDate}</td>
-			<td>${dto.bHit}</td>
-		</tr>
-		</c:forEach>
-		
-		<!-- admin일때와 아닐때 -->
-		<c:choose>
-			<c:when test="${sessionScope.loginUser eq 'admin'}">
-				<br>
-					<td colspan="5"> <a href="write_view.do">글작성</a> </td>
-				<br>
-			</c:when>
-		<c:otherwise>
-				
-			</c:otherwise>
-		</c:choose>
-		
-		
-		<tr>
-		<!-- 	<td colspan="5"> <a href="write_view.do">글작성</a> </td> -->
-		</tr>
+              <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
+		<form action="reply.do" method="post">
+			<input type="hidden" name="bId" value="${reply_view.bId}">
+			<input type="hidden" name="bGroup" value="${reply_view.bGroup}">
+			<input type="hidden" name="bStep" value="${reply_view.bStep}">
+			<input type="hidden" name="bIndent" value="${reply_view.bIndent}">
+			<tr>
+				<td> 번호 </td>
+				<td> ${reply_view.bId} </td>
+			</tr>
+			<tr>
+				<td> 히트 </td>
+				<td> ${reply_view.bHit} </td>
+			</tr>
+			<tr>
+				<td> 이름 </td>
+				<td> <input type="text" name="bName" value="${reply_view.bName}"></td>
+			</tr>
+			<tr>
+				<td> 제목 </td>
+				<td> <input type="text" name="bTitle" value="${reply_view.bTitle}"></td>
+			</tr>
+			<tr>
+				<td> 내용 </td>
+				<td> <textarea rows="10"  name="bContent">${reply_view.bContent}</textarea></td>
+			</tr>
+			<tr >
+				<td colspan="2"><input type="submit" value="답변"> <a href="list.do" >목록</a></td>
+			</tr>
+		</form>
 	</table>
+				  
 				  
 				  
 				  

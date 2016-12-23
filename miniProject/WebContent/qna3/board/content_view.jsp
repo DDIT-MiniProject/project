@@ -1,12 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=EUC-KR"
-    pageEncoding="EUC-KR"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+   pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
-<title>»∏ø¯ ¿Øπ´ »Æ¿Œ ∆‰¿Ã¡ˆ</title>
+<meta charset="UTF-8">
+<title>qnaview</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -45,14 +44,10 @@
    color: gray;
    border: 1px solid blue;
 }
-#abc{
-font-size: 10pt;
-
-}
 </style>
 </head>
 <body>
-   <div class="container-fluid text-center">
+   <form action="">
          <div class="row content">
             <div class="col-sm-2 sidenav">
                <p>
@@ -62,86 +57,61 @@ font-size: 10pt;
                   <a href="<%=request.getContextPath()%>/qna/qnaView.jsp">FAQ</a>
                </p>
                <p>
-                  <a href="<%=request.getContextPath()%>/qnaNotice.do">∞¯¡ˆªÁ«◊</a>
+                  <a href="<%=request.getContextPath()%>/qna/notice/notice.jsp">Í≥µÏßÄÏÇ¨Ìï≠</a>
                </p>
-               <p>
-                  <a href="<%=request.getContextPath()%>/qnaNotice2.do">¿œπ›∞‘Ω√∆«</a>
-               </p>
+               
+               
                
             </div>
            
            
             <div class="col-sm-8 text-left">
           
-               <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
-		<form action="modify.do" method="post" accept-charset="UTF-8">
+               
+               
+				  <h1><strong>FAQ</strong></h1>
+				  
+				
+				
+				<table width="500" cellpadding="0" cellspacing="0" border="1">
+		<form action="modify.do" method="post">
 			<input type="hidden" name="bId" value="${content_view.bId}">
 			<tr>
-				<td> π¯»£ </td>
+				<td> Î≤àÌò∏ </td>
 				<td> ${content_view.bId} </td>
 			</tr>
 			<tr>
-				<td> »˜∆Æ </td>
+				<td> ÌûàÌä∏ </td>
 				<td> ${content_view.bHit} </td>
 			</tr>
 			<tr>
-				<td> ¿Ã∏ß </td>
+				<td> Ïù¥Î¶Ñ </td>
 				<td> <input type="text" name="bName" value="${content_view.bName}"></td>
 			</tr>
 			<tr>
-				<td> ¡¶∏Ò </td>
+				<td> Ï†úÎ™© </td>
 				<td> <input type="text" name="bTitle" value="${content_view.bTitle}"></td>
 			</tr>
 			<tr>
-				<td> ≥ªøÎ </td>
+				<td> ÎÇ¥Ïö© </td>
 				<td> <textarea rows="10" name="bContent" >${content_view.bContent}</textarea></td>
 			</tr>
 			<tr >
-				<td colspan="2"> 
-				
-		<!-- admin¿œ∂ßøÕ æ∆¥“∂ß -->
-		<c:choose>
-				<c:when test="${sessionScope.loginUser eq 'admin'}">
-					<br>
-						<input type="submit" value="ºˆ¡§"> &nbsp;&nbsp; 
-					<br>
-				</c:when>
-			<c:otherwise>
-				
-			</c:otherwise>
-		</c:choose>
-		
-				<a href="qnaNotice.do">∏Ò∑œ∫∏±‚
-				</a> &nbsp;&nbsp; 
-		
-		<!-- admin¿œ∂ßøÕ æ∆¥“∂ß -->
-		<c:choose>
-			<c:when test="${sessionScope.loginUser eq 'admin'}">
-				<br>
-				<a href="delete.do?bId=${content_view.bId}">ªË¡¶</a> 
-				<br>
-			</c:when>
-		<c:otherwise>
-				
-			</c:otherwise>
-		</c:choose>
-				
-		
-				
-				
-				
-				
-				
-				
-				
-				
-				&nbsp;&nbsp;</td>
+				<td colspan="2"> <input type="submit" value="ÏàòÏ†ï"> &nbsp;&nbsp; <a href="list.do">Î™©Î°ùÎ≥¥Í∏∞</a> &nbsp;&nbsp; <a href="delete.do?bId=${content_view.bId}">ÏÇ≠Ï†ú</a> &nbsp;&nbsp; <a href="reply_view.do?bId=${content_view.bId}">ÎãµÎ≥Ä</a></td>
 			</tr>
 		</form>
 	</table>
+				  
+				  
+				  
+               
             
-	         </div>
-	      </div>
-	      </div>
+            
+            
+         </div>
+      </div>
+
+   </form>
+
 </body>
 </html>

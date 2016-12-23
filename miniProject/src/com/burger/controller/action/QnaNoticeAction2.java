@@ -19,7 +19,9 @@ public class QnaNoticeAction2 implements Action {
 	@Override
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+		
 		String url = "qna2/notice/notice.jsp";
+		request.setCharacterEncoding("utf-8");
 		
 		System.out.println("a : "+(String)request.getParameter("bName"));
 

@@ -1,12 +1,11 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
 <meta charset="UTF-8">
-<title>회원 유무 확인 페이지</title>
+<title>qnaview</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -45,11 +44,6 @@
    color: gray;
    border: 1px solid blue;
 }
-#abc{
-font-size: 10pt;
-
-}
-
 </style>
 </head>
 <body>
@@ -64,65 +58,57 @@ font-size: 10pt;
                   <a href="<%=request.getContextPath()%>/qna/qnaView.jsp">FAQ</a>
                </p>
                <p>
-                  <a href="<%=request.getContextPath()%>/qnaNotice.do">공지사항</a>
+                  <a href="<%=request.getContextPath()%>/qna/notice/notice.jsp">공지사항</a>
                </p>
                <p>
-                  <a href="<%=request.getContextPath()%>/qnaNotice2.do">일반게시판</a>
+                  <a href="<%=request.getContextPath()%>/qna/board/list.jsp">일반게시판</a>
                </p>
+               
                
             </div>
            
            
             <div class="col-sm-8 text-left">
           
-               <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
-		<tr>
-			<td>번호</td>
-			<td>이름</td>
-			<td>제목</td>
-			<td>날짜</td>
-			<td>히트</td>
-		</tr>
-		<c:forEach items="${list}" var="dto">
-		<tr>
-			<td>${dto.bId}</td>
-			<td>${dto.bName}</td>
-			<td>
-				<c:forEach begin="1" end="${dto.bIndent}">-</c:forEach>
-				<a href="content_view.do?bId=${dto.bId}">${dto.bTitle}</a></td>
-			<td>${dto.bDate}</td>
-			<td>${dto.bHit}</td>
-		</tr>
-		</c:forEach>
-		
-		<!-- admin일때와 아닐때 -->
-		<c:choose>
-			<c:when test="${sessionScope.loginUser eq 'admin'}">
-				<br>
-					<td colspan="5"> <a href="write_view.do">글작성</a> </td>
-				<br>
-			</c:when>
-		<c:otherwise>
-				
-			</c:otherwise>
-		</c:choose>
-		
-		
-		<tr>
-		<!-- 	<td colspan="5"> <a href="write_view.do">글작성</a> </td> -->
-		</tr>
-	</table>
-				  
-				  
-				  
-				  
                
-            
-            
-            
-	         </div>
-	      </div>
-	      </div>
+               
+				  <h1><strong>FAQ</strong></h1>
+
+
+
+				<table class="table" width="500" cellpadding="0" cellspacing="0" border="1">
+					<tr>
+						<td>번호</td>
+						<td>이름</td>
+						<td>제목</td>
+						<td>날짜</td>
+						<td>히트</td>
+					</tr>
+					<c:forEach items="${list}" var="dto">
+						<tr>
+							<td>${dto.bId}</td>
+							<td>${dto.bName}</td>
+							<td><c:forEach begin="1" end="${dto.bIndent}">-</c:forEach>
+								<a href="content_view.do?bId=${dto.bId}">${dto.bTitle}</a></td>
+							<td>${dto.bDate}</td>
+							<td>${dto.bHit}</td>
+						</tr>
+					</c:forEach>
+					<tr>
+						<td colspan="5"><a href="write_view.do">글작성</a></td>
+					</tr>
+				</table>
+
+
+
+
+
+
+
+
+			</div>
+      </div>
+      </div>
 
    </form>
 

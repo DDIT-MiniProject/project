@@ -1,7 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -74,7 +73,7 @@ font-size: 10pt;
             <div class="col-sm-8 text-left">
           
                <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
-		<form action="modify.do" method="post" accept-charset="UTF-8">
+		<form action="modify2.do" method="post" accept-charset="UTF-8">
 			<input type="hidden" name="bId" value="${content_view.bId}">
 			<tr>
 				<td> 번호 </td>
@@ -97,45 +96,7 @@ font-size: 10pt;
 				<td> <textarea rows="10" name="bContent" >${content_view.bContent}</textarea></td>
 			</tr>
 			<tr >
-				<td colspan="2"> 
-				
-		<!-- admin일때와 아닐때 -->
-		<c:choose>
-				<c:when test="${sessionScope.loginUser eq 'admin'}">
-					<br>
-						<input type="submit" value="수정"> &nbsp;&nbsp; 
-					<br>
-				</c:when>
-			<c:otherwise>
-				
-			</c:otherwise>
-		</c:choose>
-		
-				<a href="qnaNotice.do">목록보기
-				</a> &nbsp;&nbsp; 
-		
-		<!-- admin일때와 아닐때 -->
-		<c:choose>
-			<c:when test="${sessionScope.loginUser eq 'admin'}">
-				<br>
-				<a href="delete.do?bId=${content_view.bId}">삭제</a> 
-				<br>
-			</c:when>
-		<c:otherwise>
-				
-			</c:otherwise>
-		</c:choose>
-				
-		
-				
-				
-				
-				
-				
-				
-				
-				
-				&nbsp;&nbsp;</td>
+				<td colspan="2"> <input type="submit" value="수정"> &nbsp;&nbsp; <a href="qnaNotice2.do">목록보기</a> &nbsp;&nbsp; <a href="delete2.do?bId=${content_view.bId}">삭제</a> &nbsp;&nbsp;</td>
 			</tr>
 		</form>
 	</table>
