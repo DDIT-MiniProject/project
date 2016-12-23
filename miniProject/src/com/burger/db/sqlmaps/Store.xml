@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+ 
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"  "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap namespace="store">
+
+	<typeAlias alias="str" type="java.lang.String" />
+	<typeAlias alias="store" type="com.burger.dto.StoreVO" />
+	<typeAlias alias="int" type="java.lang.Integer" />
+	
+	<!-- <select id="searchStore" parameterClass="str" resultClass="store">
+		select * from store where name like '%'||#name#||'%'
+	</select> -->
+	
+	<select id="selectAllStore" parameterClass="str" resultClass="store">
+		select * from store 
+	</select>
+	
+	<select id="storeTotalRecord" parameterClass="str" resultClass="int">
+		select count(*) from store where name like '%'||#name#||'%'
+	</select>
+
+	<select id="listStore" parameterClass="str" resultClass="store">
+		select * from store where name like '%'||#name#||'%' 
+	</select>
+		
+	
+</sqlMap>

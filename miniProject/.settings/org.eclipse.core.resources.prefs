@@ -1,0 +1,10 @@
+eclipse.preferences.version=1
+encoding//src/com/burger/admin/controller/action/AdminProductInsertAction.java=UTF-8
+encoding//src/com/burger/admin/controller/action/AdminProductListAction.java=UTF-8
+encoding//src/com/burger/admin/controller/action/AdminProductSearchAction.java=UTF-8
+encoding//src/com/burger/admin/controller/action/AdminProductUpdate.java=UTF-8
+encoding//src/com/burger/admin/controller/action/AdminProductUpdateFormAction.java=UTF-8
+encoding//src/com/burger/dao/ProductDAO.java=UTF-8
+encoding//src/com/burger/dao/QnaDAO.java=UTF-8
+encoding//src/com/burger/dao/iBatis/ProductDAO_iBatis.java=UTF-8
+encoding//src/com/burger/dao/iBatis/QnaDAO_iBatis.java=UTF-8

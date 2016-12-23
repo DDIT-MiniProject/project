@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<decorators defaultdir="/">
+	<decorator name="main" page="burger_decorator.jsp">
+		<pattern>/</pattern>
+	</decorator>
+	<decorator name="admin" page="admin_decorator.jsp">
+		<pattern>/admin/*</pattern>
+	</decorator>
+	
+	<excludes>
+	<pattern>/admin/adminLoginForm.do</pattern>
+	<pattern>/admin/adminLogin.do</pattern>
+	
+		<pattern>/findZipNum.do*</pattern>
+		<pattern>/idCheckForm.do*</pattern>
+
+	</excludes>
+	
+	
+	
+	
+</decorators>
