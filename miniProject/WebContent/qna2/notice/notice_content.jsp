@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR"
+    pageEncoding="EUC-KR"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <!DOCTYPE html>
 <html>
 <head>
-<meta charset="UTF-8">
-<title>qnaview</title>
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
+<title>»∏ø¯ ¿Øπ´ »Æ¿Œ ∆‰¿Ã¡ˆ</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -44,10 +44,13 @@
    color: gray;
    border: 1px solid blue;
 }
+#abc{
+font-size: 10pt;
+
+}
 </style>
 </head>
 <body>
-   <form action="">
    <div class="container-fluid text-center">
          <div class="row content">
             <div class="col-sm-2 sidenav">
@@ -58,59 +61,48 @@
                   <a href="<%=request.getContextPath()%>/qna/qnaView.jsp">FAQ</a>
                </p>
                <p>
-                  <a href="<%=request.getContextPath()%>/qna/notice/notice.jsp">Í≥µÏßÄÏÇ¨Ìï≠</a>
+                  <a href="<%=request.getContextPath()%>/qnaNotice.do">∞¯¡ˆªÁ«◊</a>
                </p>
                <p>
-                  <a href="<%=request.getContextPath()%>/qna/board/list.jsp">ÏùºÎ∞òÍ≤åÏãúÌåê</a>
+                  <a href="<%=request.getContextPath()%>/qnaNotice2.do">¿œπ›∞‘Ω√∆«</a>
                </p>
-               
                
             </div>
            
            
             <div class="col-sm-8 text-left">
           
-               
-               
-				  <h1><strong>FAQ</strong></h1>
-
-
-
-				<table class="table" width="500" cellpadding="0" cellspacing="0" border="1">
-					<tr>
-						<td>Î≤àÌò∏</td>
-						<td>Ïù¥Î¶Ñ</td>
-						<td>Ï†úÎ™©</td>
-						<td>ÎÇ†Ïßú</td>
-						<td>ÌûàÌä∏</td>
-					</tr>
-					<c:forEach items="${list}" var="dto">
-						<tr>
-							<td>${dto.bId}</td>
-							<td>${dto.bName}</td>
-							<td><c:forEach begin="1" end="${dto.bIndent}">-</c:forEach>
-								<a href="content_view.do?bId=${dto.bId}">${dto.bTitle}</a></td>
-							<td>${dto.bDate}</td>
-							<td>${dto.bHit}</td>
-						</tr>
-					</c:forEach>
-					<tr>
-						<td colspan="5"><a href="write_view.do">Í∏ÄÏûëÏÑ±</a></td>
-					</tr>
-				</table>
-
-
-
-
-
-
-
-
-			</div>
-      </div>
-      </div>
-
-   </form>
-
+               <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
+		<form action="modify2.do" method="post" accept-charset="UTF-8">
+			<input type="hidden" name="bId" value="${content_view.bId}">
+			<tr>
+				<td> π¯»£ </td>
+				<td> ${content_view.bId} </td>
+			</tr>
+			<tr>
+				<td> »˜∆Æ </td>
+				<td> ${content_view.bHit} </td>
+			</tr>
+			<tr>
+				<td> ¿Ã∏ß </td>
+				<td> <input type="text" name="bName" value="${content_view.bName}"></td>
+			</tr>
+			<tr>
+				<td> ¡¶∏Ò </td>
+				<td> <input type="text" name="bTitle" value="${content_view.bTitle}"></td>
+			</tr>
+			<tr>
+				<td> ≥ªøÎ </td>
+				<td> <textarea rows="10" name="bContent" >${content_view.bContent}</textarea></td>
+			</tr>
+			<tr >
+				<td colspan="2"> <input type="submit" value="ºˆ¡§"> &nbsp;&nbsp; <a href="qnaNotice2.do">∏Ò∑œ∫∏±‚</a> &nbsp;&nbsp; <a href="delete2.do?bId=${content_view.bId}">ªË¡¶</a> &nbsp;&nbsp;</td>
+			</tr>
+		</form>
+	</table>
+            
+	         </div>
+	      </div>
+	      </div>
 </body>
 </html>
