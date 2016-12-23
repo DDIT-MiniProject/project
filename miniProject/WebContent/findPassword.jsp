@@ -58,8 +58,8 @@ table#zipcode a:hover{
 <script type="text/javascript">
 function result(pwd,name,email,phone) {
 	/* alert(zipNum); */
-   	  opener.document.form.pwd.value=pwd;
-	  opener.document.form.name.value=name
+   	  /* opener.document.form.pwd.value=pwd; */
+/* 	  opener.document.form.name.value=name */
 	  /* +" "+email+" "+phone; */
    self.close();
 };
@@ -72,6 +72,7 @@ function result(pwd,name,email,phone) {
     아아디 : <input name="id" type="text" id="idd">
             <input type="submit" value="찾기"  class="submit">
   </form>
+  <form>
   <table id="idcode">
     <tr>
       <th>패스워드</th>
@@ -79,17 +80,24 @@ function result(pwd,name,email,phone) {
       <th>이메일</th>
       <th>연락처</th>
     </tr>
-    <c:forEach items="${memberList}" var="MemberVO">
+<%--     <c:forEach items="${member}" var="MemberVO"> --%>
     <tr>
-      <td>${MemberVO.pwd}</td>
-        <td>
-<a href="#" onclick="return result('${MemberVO.name}','${MemberVO.email}', '${MemberVO.phone}'">
-           ${MemberVO.name} ${MemberVO.email} ${MemberVO.phone} 
+      <td>${member.pwd}</td>
+       <td>${member.name}</td>
+       <td>${member.email}</td>
+       <td>${member.phone}</td>
+       <%-- <td>
+			<a href="#" onclick="return result('${member.name}','${member.email}', '${member.phone}'">
+           ${member.name} ${member.email} ${member.phone} 
           </a>
-        </td>
+        </td> --%>
     </tr>
-    </c:forEach>
+    <%-- </c:forEach> --%>
+    <tr>
+    	<td><input type="button" class="btn btn-warning" value="확인" onclick="result(this.form)"/></td>
+    </tr>
   </table>
+  </form>
 </div>
 </body>
 </html>

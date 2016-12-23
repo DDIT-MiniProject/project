@@ -54,7 +54,7 @@ table {
 			<td>
 				비밀번호:
 				</td>
-				<td><input type="text" name="pwd" id="pwd" size="20" /></td>
+				<td><input type="password" name="pwd" id="pwd" size="20" /></td>
 			</tr>
 			<tr>
 				<td>&nbsp;</td>
