@@ -58,10 +58,10 @@ table{
 					<p>
 						<a href="<%=request.getContextPath()%>/storeForm.jsp">배달매장찾기</a>
 					</p>
-					<p>
+					<%-- <p>
 						<a href="<%=request.getContextPath()%>/orderForm.jsp">비회원주문 /</a>
 						<a href="<%=request.getContextPath()%>/memberOrderForm.jsp">회원주문</a>
-					</p>
+					</p> --%>
 				</div>
 				<div class="col-sm-8 text-left">
 					<h1>BURGER KING 배달매장찾기</h1>

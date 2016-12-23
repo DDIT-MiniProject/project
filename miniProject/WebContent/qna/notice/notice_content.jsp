@@ -104,7 +104,7 @@ font-size: 15pt;
 				</a> &nbsp;&nbsp; 
 		
 				
-		
+		<a href="delete.do?bId=${content_view.bId}">ªË¡¶</a> &nbsp;&nbsp;
 				
 				
 				
