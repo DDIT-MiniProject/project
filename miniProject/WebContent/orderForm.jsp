@@ -8,17 +8,48 @@
 <meta charset="UTF-8">
 <title>비회원 주문 | 버거킹 딜리버리</title>
 <script>
-	function non_order_go(form){
+/* 	function non_order_go(form){
 		var test = document.getElementById('checkNonMember');
 		if($(checkNonMember).prop("checked")){
 			alert("주문완료되었습니다.");
 		}else{
 			alert("수집목적 동의에 체크를 해주세요");		
 		}
-	}
+	} */
 	function mem_order_go(form){
-		form.action = "orderMenu.do";
-		form.submit(); 
+		/*var test = document.getElementById('checkNonMember');
+		 if(test.prop("checked")){
+			alert("수집목적 동의에 체크를 해주세요");
+			form.test.focus()
+		}else if ($(checkNonMember).prop("checked")){
+			return true; */
+		if(!document.getElementById('checkNonMember').checked){
+			alert("수집목적 동의에 체크를 해주세요");
+		}else if(form.zipNum.value == ""){
+			alert("주소를 검색하여 입력하여 주세요");
+			form.searchAddr.focus()
+		}else if(form.addr1.value == ""){
+			alert("주소를 검색하여 입력해 주세요");
+			form.searchAddr.focus()
+		}else if(form.addr2.value == ""){
+			alert("상세주소를 입력해 주세요");
+			form.addr2.focus()
+		}else if (form.phone1.value == ""){
+			alert("연락처를 입력해 주세요");
+			form.phone1.focus()
+		}else if(form.phone2.value ==""){
+			alert("연락처를 입력해 주세요");
+			form.phone2.focus()
+		}else{
+			alert("주문완료되었습니다.");
+			// 수정 해야됨 action --> order -- > DB insert
+			form.action = "orderMenu.do";
+			form.submit(); 
+		}
+	}
+	function searchZip(form){
+		  var url = "findZipNumm.do";
+		  window.open( url, "_blank_1","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=550, height=300, top=300, left=300, ");
 	}
 </script>
 <style>
@@ -41,7 +72,7 @@ table {
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<form action="">
+	<form name="form" action="order.do">
 		<table>
 			<tr>
 				<td colspan="10">
@@ -78,13 +109,17 @@ table {
 			</tr>
 			<tr>
 				<td><h5>주소 입력</h5></td>
-				<td><input type="text" name="addr"  size="33" placeholder="주소검색 버튼을 눌러주세요(자동입력)" readonly/>
-					<input type="button" name="searchAddr" class="btn btn-warning" value="주소검색"/></td>
-				<td></td>
+				<td><input type="text" name="zipNum"  size="20" placeholder="우편번호(자동입력)" readonly/>
+					<input type="button" name="searchAddr" class="btn btn-warning" value="주소검색" onclick="searchZip(this.form)"/></td>
 			</tr>
 			<tr>
 				<td></td>
-				<td><input type="text" name="addr1" size="33" placeholder="상세주소를 입력해주세요"/></td>
+				<td><input type="text" name="addr1"  size="33" placeholder="주소검색 버튼을 눌러주세요(자동입력)" readonly/>
+					</td>
+			</tr>
+			<tr>
+				<td></td>
+				<td><input type="text" name="addr2" size="33" placeholder="상세주소를 입력해주세요"/></td>
 				<td></td>
 			</tr>
 			
@@ -96,16 +131,18 @@ table {
 					<option>011</option>
 					<option>016</option>
 				</select>
-				<input type="text" name="non_phone" id="phone" size="10" />-
-				<input type="text" name="non_phone" id="phone" size="10" />
-				<button type="button" class="btn btn-warning">확인</button></td>
+				<input type="text" name="phone1" id="phone1" size="10" />-
+				<input type="text" name="phone2" id="phone2" size="10" />
+				<!-- <button type="button" class="btn btn-warning">확인</button> -->
+				</td>
 			</tr>
 			
 			<tr>
 				<td></td>
 				<td>
 					<!-- <input type="button" class="btn btn-warning btn-lg" value="비회원 주문하기" onclick="non_order_go(this.form)"/> -->
-					<input type="button" class="btn btn-warning btn-lg" value="회원 주문하기" onclick="mem_order_go(this.form)"/>
+					<input type="button" class="btn btn-warning btn-lg" value="주문하기" onclick="mem_order_go(this.form)"/>
+					<!-- <input type="button" class="btn btn-warning btn-lg" value="주문하기" onclick="mem_order_go(this.form)"/> -->
 					<input type="button" class="btn btn-danger btn-lg" value="HOME"onclick="location.href='<%=request.getContextPath()%>/index.jsp'"/>
 				</td>
 			</tr>
