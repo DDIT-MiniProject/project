@@ -17,7 +17,7 @@
    
 <script>
 function cart_go(form){
-	alert('장바구니에 ${productVO.name} 상품이 담겼습니다');
+/* 	alert('장바구니에 ${productVO.name} 상품이 담겼습니다'); */
 	form.method="post";
 	form.action="cartInsert.do";
 	form.submit();
