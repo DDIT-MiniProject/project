@@ -64,4 +64,10 @@ public class MemberDAO_iBatis implements MemberDAO {
 		return result;
 	}
 
+	@Override
+	public MemberVO searchMember(String pwd) throws SQLException {
+		MemberVO member = (MemberVO) client.queryForObject("getMember", pwd);
+		return member;
+	}
+
 }
