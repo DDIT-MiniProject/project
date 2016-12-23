@@ -78,7 +78,7 @@ function go_mem(form){
 						<a href="joinForm.do">회원가입</a>
 					</p>
 					<p>
-						<a href="#">아이디/비밀번호찾기</a>
+						<a href="<%=request.getContextPath()%>/searchForm.jsp">아이디/비밀번호찾기</a>
 					</p>
 				<%-- 	<p>
 						<a href="<%=request.getContextPath()%>/orderForm.jsp">비회원주문</a>

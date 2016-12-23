@@ -12,7 +12,7 @@ body{
 	background: black;
 	color: white;
 }
-#dongName{
+#idd{
 	color: black;
 }
 #popup{   
@@ -28,14 +28,14 @@ body{
    color: #CCC;
    font-weight: normal;
 }
-table#zipcode {
+table#idcode {
     border-collapse:collapse;    /* border 사이의 간격 없앰 */   
     border-top: 3px solid  #fff;  
     border-bottom: 3px solid  #fff;
     width: 100%;  
     margin-top: 15px; 
 }
-table#zipcode th, table#zipcode td{   
+table#idcode th, table#idcode td{   
    text-align: center;
    border-bottom: 1px dotted  #fff;  
    color:#FFF;   
@@ -43,7 +43,7 @@ table#zipcode th, table#zipcode td{
 table th, td{
   padding: 10px;
 }
-table#zipcode  a{
+table#idcode  a{
     display:block; 
     height:20px;
     text-decoration:none;
@@ -59,7 +59,8 @@ table#zipcode a:hover{
 function result(pwd,name,email,phone) {
 	/* alert(zipNum); */
    	  opener.document.form.pwd.value=pwd;
-	  opener.document.form.cont.value=name+" "+email+" "+phone;
+	  opener.document.form.name.value=name
+	  /* +" "+email+" "+phone; */
    self.close();
 };
 </script>
@@ -78,7 +79,7 @@ function result(pwd,name,email,phone) {
       <th>이메일</th>
       <th>연락처</th>
     </tr>
-    <c:forEach items="${member}" var="MemberVO">
+    <c:forEach items="${memberList}" var="MemberVO">
     <tr>
       <td>${MemberVO.pwd}</td>
         <td>
