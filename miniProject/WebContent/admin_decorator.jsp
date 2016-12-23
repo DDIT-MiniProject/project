@@ -92,9 +92,9 @@ footer {
 				</a>
 				<br><a href="adminMain.do"> <span class="glyphicon glyphicon-user"></span>Admin
 				</a></li>
-				<li><a href="#about" class="w3-left"><img src="<%=request.getContextPath()%>/images/order.png"></a> 
-					<a href="menuForm.do" class="w3-left"><img src="<%=request.getContextPath()%>/images/menu.png"></a> 
-					<a href="#contact" class="w3-left w3-margin-right"><img src="<%=request.getContextPath()%>/images/store.png"></a> 
+				<li><a href="<%=request.getContextPath()%>/loginForm.do" class="w3-left"><img src="<%=request.getContextPath()%>/images/order.png"></a> 
+					<a href="<%=request.getContextPath()%>/menuForm.do" class="w3-left"><img src="<%=request.getContextPath()%>/images/menu.png"></a> 
+					<a href="<%=request.getContextPath()%>/storeForm.do" class="w3-left w3-margin-right"><img src="<%=request.getContextPath()%>/images/store.png"></a> 
 					<a href="#FAQ" class="w3-left w3-margin-right"><img src="<%=request.getContextPath()%>/images/faq.png"></a>
 					</li>
 					
