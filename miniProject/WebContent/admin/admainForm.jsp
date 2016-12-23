@@ -14,6 +14,8 @@
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
   <style>
   #tt{width:30px}
+  .badge{width:100px;
+           text-align:center}
  
   </style>
 </head>
@@ -40,8 +42,8 @@
      <tbody>
       <tr>
         <td> <span class="badge"><h3>${result }</h3></span></td>
-        <td> <span class="badge"><h3>12</h3></span></td>
-        <td> <span class="badge"><h3>12</h3></span></td>
+        <td> <span class="badge"><h3>${orderResult }</h3></span></td>
+        <td> <span class="badge"><h3>${qnaResult }</h3></span></td>
       </tr>
       </tbody>
     </table>

@@ -27,4 +27,8 @@
 	<update id="updateQna" parameterClass="qna" >
 		update qna set reply=#reply#, rep='2' where qseq=#qseq#
 	</update>
+	
+	<select id="newQnaSearch" resultClass="int">
+	    select count(*) from qna where rep='1'
+	</select>
 </sqlMap>
