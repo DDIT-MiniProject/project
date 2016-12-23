@@ -33,7 +33,7 @@ public class CartInsertAction implements Action {
 			url = "loginForm.do";
 		} else {
 			CartVO cartVO = new CartVO();
-			cartVO.setId("one");
+			cartVO.setId(loginUser.getId());
 			cartVO.setPseq(product.getPseq());
 			cartVO.setQuantity(Integer.parseInt(request.getParameter("quantity")));
 			cartVO.setPname(product.getName());
