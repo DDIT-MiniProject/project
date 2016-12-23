@@ -86,7 +86,7 @@
 
                	  <c:forEach items="${productList}" var="productVO">
   
-     			 <a href="menuDetail.do?pseq=${productVO.pseq }"><img src="<%=request.getContextPath()%>/images/burgermenu/${productVO.name }.png" width="180px" height="190px"></a>
+     			 <a href="menuDetail.do?pseq=${productVO.pseq }"><img src="<%=request.getContextPath()%>/images/menu/${productVO.name }.png" width="180px" height="190px"></a>
 
    				 </c:forEach>
                	  
