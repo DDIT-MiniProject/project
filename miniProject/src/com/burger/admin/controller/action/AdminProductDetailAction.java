@@ -38,12 +38,10 @@ public class AdminProductDetailAction implements Action{
 		 if(request.getParameter("tpage")!=null){
 			 tpage=request.getParameter("tpage");
 		 }
-		 String kindList[]={"햄벅","햄벅","햄벅"
-				 
-		 };
+		
 		 request.setAttribute("tpage", tpage);
 		 int index=Integer.parseInt(productVO.getKind().trim());
-		    request.setAttribute("kind", kindList[index]);
+		   
 		 
 		return url;
 	}

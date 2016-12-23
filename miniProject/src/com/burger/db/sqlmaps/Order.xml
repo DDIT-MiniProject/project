@@ -45,4 +45,8 @@
 	<update id="updateOrderResult" parameterClass="str">
 		update order_detail set result='2' where odseq=#oseq#
 	</update>
-</sqlMap>
+	
+	<select id="newOrderSearch" resultClass="int">
+	    select count(*) from order_detail where result='1'
+	</select>
+ </sqlMap>
