@@ -8,6 +8,13 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>Insert title here</title>
 </head>
+ <script type="text/javascript">
+ 	function BtnClick(form){
+ 		form.action="adminProductList.do";
+ 		form.method='post';
+ 		form.submit();
+ 	}
+  </script>
 <body>
 <br>
 
@@ -68,7 +75,7 @@
       </table>
       
       
-      <button type="button" class="btn btn-default">목록</button>
+      <button type="button" class="btn btn-default" onclick="BtnClick(this.form)">목록</button>
       </div>
       </form>
 </body>
