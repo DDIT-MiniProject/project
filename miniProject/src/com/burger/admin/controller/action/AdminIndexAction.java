@@ -14,7 +14,7 @@ public class AdminIndexAction implements Action {
   @Override
   public String execute(HttpServletRequest request, HttpServletResponse response)
       throws ServletException, IOException {
-    String url = "adminloginForm2.jsp";  
+    String url = "adminloginForm.jsp";  
      
     return url;
   }

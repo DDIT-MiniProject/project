@@ -10,6 +10,7 @@
 	
 	<excludes>
 	<pattern>/admin/adminLoginForm.do</pattern>
+	<pattern>/admin/adminLogin.do</pattern>
 	
 	
 		<pattern>/findZipNumm.do*</pattern> 
