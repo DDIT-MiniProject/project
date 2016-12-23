@@ -59,7 +59,7 @@ table{
 						<a href="<%=request.getContextPath()%>/storeForm.jsp">배달매장찾기</a>
 					</p>
 					<p>
-						<a href="<%=request.getContextPath()%>/orderForm.jsp">비회원주문 /</a>
+						<%-- <a href="<%=request.getContextPath()%>/orderForm.jsp">비회원주문 /</a> --%>
 						<a href="<%=request.getContextPath()%>/memberOrderForm.jsp">회원주문</a>
 					</p>
 				</div>
