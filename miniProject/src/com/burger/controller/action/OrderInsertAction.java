@@ -42,13 +42,10 @@ public class OrderInsertAction implements Action{
 				int totalPrice = 0;
 				for (CartVO cartVO : cartList) {
 					totalPrice += cartVO.getPrice2() * cartVO.getQuantity();
-					orderDAO.insertOrderDetail(cartVO, );
+
 					cartDAO.deleteCart(cartVO.getCseq());
 				}
-				
-				
-				
-				
+						
 				request.setAttribute("orderVO", orderVO);
 				request.setAttribute("cartList", cartList);
 				request.setAttribute("totalPrice", totalPrice);
