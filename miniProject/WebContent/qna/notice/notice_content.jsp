@@ -98,33 +98,11 @@ font-size: 10pt;
 			</tr>
 			<tr >
 				<td colspan="2"> 
-				
-		<!-- admin일때와 아닐때 -->
-		<c:choose>
-				<c:when test="${sessionScope.loginUser eq 'admin'}">
-					<br>
-						<input type="submit" value="수정"> &nbsp;&nbsp; 
-					<br>
-				</c:when>
-			<c:otherwise>
-				
-			</c:otherwise>
-		</c:choose>
-		
+
+					<input type="submit" value="수정"> &nbsp;&nbsp; 
 				<a href="qnaNotice.do">목록보기
 				</a> &nbsp;&nbsp; 
 		
-		<!-- admin일때와 아닐때 -->
-		<c:choose>
-			<c:when test="${sessionScope.loginUser eq 'admin'}">
-				<br>
-				<a href="delete.do?bId=${content_view.bId}">삭제</a> 
-				<br>
-			</c:when>
-		<c:otherwise>
-				
-			</c:otherwise>
-		</c:choose>
 				
 		
 				

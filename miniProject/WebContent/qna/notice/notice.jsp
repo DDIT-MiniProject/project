@@ -96,29 +96,15 @@ font-size: 10pt;
 		</c:forEach>
 		
 		<!-- admin일때와 아닐때 -->
-		<c:choose>
-			<c:when test="${sessionScope.loginUser eq 'admin'}">
-				<br>
-					<td colspan="5"> <a href="write_view.do">글작성</a> </td>
-				<br>
-			</c:when>
-		<c:otherwise>
-				
-			</c:otherwise>
-		</c:choose>
-		
+		<c:if test="${!empty id && id eq 'admin'}">
+			<td colspan="5"> <a href="write_view.do">글작성</a> </td>
+		</c:if>
+					
 		
 		<tr>
 		<!-- 	<td colspan="5"> <a href="write_view.do">글작성</a> </td> -->
 		</tr>
 	</table>
-				  
-				  
-				  
-				  
-               
-            
-            
             
 	         </div>
 	      </div>

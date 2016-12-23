@@ -16,6 +16,7 @@ public class NoticeUpdateAction implements Action {
 	public String execute(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String url = "/qnaNotice.do";
+		request.setCharacterEncoding("utf-8");
 		
 		System.out.println("request : "+request.getParameter("bName"));
 		System.out.println("request : "+request.getParameter("bTitle"));

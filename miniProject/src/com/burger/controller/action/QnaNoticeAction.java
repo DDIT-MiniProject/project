@@ -22,7 +22,11 @@ public class QnaNoticeAction implements Action {
 		System.out.println("a : "+(String)request.getParameter("bName"));
 
 		HttpSession session = request.getSession();
+		
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		if(loginUser!=null){
+			request.setAttribute("id", loginUser.getId());
+		}
 		
 		BDao dao = new BDao();
 		ArrayList<BDto> dtos = dao.list();
