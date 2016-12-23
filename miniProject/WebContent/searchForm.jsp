@@ -6,50 +6,11 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>비회원 주문 | 버거킹 딜리버리</title>
+<title>회원정보 찾기폼</title>
 <script>
-/* 	function non_order_go(form){
-		var test = document.getElementById('checkNonMember');
-		if($(checkNonMember).prop("checked")){
-			alert("주문완료되었습니다.");
-		}else{
-			alert("수집목적 동의에 체크를 해주세요");		
-		}
-	} */
-	function mem_order_go(form){
-		/*var test = document.getElementById('checkNonMember');
-		 if(test.prop("checked")){
-			alert("수집목적 동의에 체크를 해주세요");
-			form.test.focus()
-		}else if ($(checkNonMember).prop("checked")){
-			return true; */
-		if(!document.getElementById('checkNonMember').checked){
-			alert("수집목적 동의에 체크를 해주세요");
-		}else if(form.zipNum.value == ""){
-			alert("주소를 검색하여 입력하여 주세요");
-			form.searchAddr.focus()
-		}else if(form.addr1.value == ""){
-			alert("주소를 검색하여 입력해 주세요");
-			form.searchAddr.focus()
-		}else if(form.addr2.value == ""){
-			alert("상세주소를 입력해 주세요");
-			form.addr2.focus()
-		}else if (form.phone1.value == ""){
-			alert("연락처를 입력해 주세요");
-			form.phone1.focus()
-		}else if(form.phone2.value ==""){
-			alert("연락처를 입력해 주세요");
-			form.phone2.focus()
-		}else{
-			alert("주문완료되었습니다.");
-			// 수정 해야됨 action --> order -- > DB insert
-			form.action = "index.do";
-			form.submit(); 
-		}
-	}
 	function searchZip(form){
-		  var url = "findZipNumm.do";
-		  window.open( url, "_blank_1","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=550, height=300, top=300, left=300, ");
+		var url = "findZipNum.do";
+		window.open( url, "_blank_1","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=550, height=300, top=300, left=300, ");
 	}
 </script>
 <style>

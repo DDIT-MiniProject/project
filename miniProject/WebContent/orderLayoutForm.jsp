@@ -18,6 +18,11 @@ function go_login(form){
 	form.action="login.do";
 	form.submit();
 }
+function go_mem(form){
+	form.action="searchForm.jsp"
+	form.submit();
+	
+}
 </script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -136,7 +141,7 @@ function go_login(form){
 							
 							<tr>
 							<td>아이디/비밀번호를 잃어버리셨나요? &nbsp;&nbsp;
-								<button type="button" class="btn btn-primary btn-sm">아이디/비밀번호찾기</button>
+								<input type="button" class="btn btn-primary btn-sm" value="아이디/비밀번호찾기" onclick="go_mem(this.form)">
 							</td>
 							</tr>
 						<tr>
