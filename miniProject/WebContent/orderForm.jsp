@@ -43,14 +43,15 @@
 		}else{
 			alert("주문완료되었습니다.");
 			// 수정 해야됨 action --> order -- > DB insert
-			form.action = "index.do";
-			form.submit(); 
+			form.action = "orderInsert.do";
+			form.submit();
 		}
-	}
+	};
 	function searchZip(form){
 		  var url = "findZipNumm.do";
 		  window.open( url, "_blank_1","toolbar=no, menubar=no, scrollbars=yes, resizable=no, width=550, height=300, top=300, left=300, ");
-	}
+	};
+	
 </script>
 <style>
 #non_member_order {

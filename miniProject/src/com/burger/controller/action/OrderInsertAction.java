@@ -34,6 +34,7 @@ public class OrderInsertAction implements Action{
 		} else {
 			CartDAO cartDAO = CartDAO_iBatis.getInstance();
 			OrderDAO orderDAO = OrderDAO_iBatis.getInstance();
+			
 			/*CartDAO cartDAO = CartDAO_JDBC.getInstance();*/
 			try {
 				ArrayList<CartVO> cartList = cartDAO
@@ -42,12 +43,11 @@ public class OrderInsertAction implements Action{
 				int totalPrice = 0;
 				for (CartVO cartVO : cartList) {
 					totalPrice += cartVO.getPrice2() * cartVO.getQuantity();
-					orderDAO.insertOrderDetail(cartVO, );
+					int maxOseq = orderDAO.insertOrder(cartList, loginUser.getId());
+					System.out.println(maxOseq);
+					orderDAO.insertOrderDetail(cartVO, maxOseq);
 					cartDAO.deleteCart(cartVO.getCseq());
 				}
-				
-				
-				
 				
 				request.setAttribute("orderVO", orderVO);
 				request.setAttribute("cartList", cartList);
