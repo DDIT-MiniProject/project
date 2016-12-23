@@ -14,12 +14,11 @@
  
   </style>
   <script type="text/javascript">
-  $(function(){
-	$('#savebtn').click(function(){
-	   $(location).attr('href','adminOrderSave.do');	
-	});  
-  
-  });
+ 	function savebtnClick(form){
+ 		form.action="adminOrderSave.do";
+ 		form.method='post';
+ 		form.submit();
+ 	}
   </script>
 
  
@@ -62,7 +61,7 @@
         </c:when>
         <c:otherwise>
           <span style="font-weight: bold; color: green">${orderVO.odseq}</span>
-          (<input type="checkbox" checked="checked" disabled="disabled">처리완료)
+          (<input type="checkbox" name="result" checked="checked" disabled="disabled">처리완료)
         </c:otherwise>
       </c:choose>
     </td>
@@ -76,7 +75,7 @@
   </table>
   
   <input type="button" class="btn btn-default" style="width: 200px"
-      value="배송처리(입금확인)" id="savebtn">
+      value="배송처리(입금확인)" id="savebtn" onclick="savebtnClick(this.form);">
     
      </div>    
 </form>

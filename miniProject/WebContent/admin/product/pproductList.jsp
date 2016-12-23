@@ -75,8 +75,7 @@ $(function(){
 									<c:otherwise>${productVO.kind }</c:otherwise>
 									</c:choose>
 									</td>
-									<td><a href="#"
-										onClick="go_detail('${tpage}', '${productVO.pseq}')">
+									<td><a href="adminProductDetail.do?pseq=${productVO.pseq }">
 											${productVO.name} </a></td>
 									<td><fmt:formatNumber value="${productVO.price2}" /></td>
 									<td><fmt:formatDate value="${productVO.indate}" /></td>
