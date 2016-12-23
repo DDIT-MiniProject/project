@@ -12,7 +12,7 @@ import com.burger.controller.action.Action;
 import com.burger.dao.WorkerDAO;
 import com.burger.dao.iBatis.WorkerDAO_iBatis;
 
-public class AdminLoginAction implements Action {
+public class AdminLoginAction2 implements Action {
 
 	@Override
 	public String execute(HttpServletRequest request,
