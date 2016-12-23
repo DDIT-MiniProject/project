@@ -18,7 +18,13 @@
   margin: 0 auto;
 }
 </style>
-
+<script type="text/javascript">
+$(function(){
+	$('#backBtn').click(function(){
+		$(location).attr('href', '<%=request.getContextPath()%>/index.do');
+	});
+});
+</script>
 
 
 </head>
@@ -50,7 +56,7 @@
     </div>
     <br>
     <button type="submit" class="btn btn-default">Login</button>
-    <button type="button" class="btn btn-default">Cancel</button>
+    <button type="button" class="btn btn-default" id="backBtn">Cancel</button>
     
     </form>
     </div>
