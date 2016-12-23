@@ -5,7 +5,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>qnaview</title>
+<title>회원 유무 확인 페이지</title>
 
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
@@ -44,6 +44,11 @@
    color: gray;
    border: 1px solid blue;
 }
+#abc{
+font-size: 30pt;
+
+}
+
 </style>
 </head>
 <body>
@@ -58,57 +63,60 @@
                   <a href="<%=request.getContextPath()%>/qna/qnaView.jsp">FAQ</a>
                </p>
                <p>
-                  <a href="<%=request.getContextPath()%>/qna/notice/notice.jsp">공지사항</a>
+                  <a href="<%=request.getContextPath()%>/qnaNotice.do">공지사항</a>
                </p>
                <p>
-                  <a href="<%=request.getContextPath()%>/qna/board/list.jsp">일반게시판</a>
+                  <a href="<%=request.getContextPath()%>/qnaNotice2.do">일반게시판</a>
                </p>
-               
                
             </div>
            
            
             <div class="col-sm-8 text-left">
           
+              <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
+		<form action="reply.do" method="post">
+			<input type="hidden" name="bId" value="${reply_view.bId}">
+			<input type="hidden" name="bGroup" value="${reply_view.bGroup}">
+			<input type="hidden" name="bStep" value="${reply_view.bStep}">
+			<input type="hidden" name="bIndent" value="${reply_view.bIndent}">
+			<tr>
+				<td> 번호 </td>
+				<td> ${reply_view.bId} </td>
+			</tr>
+			<tr>
+				<td> 히트 </td>
+				<td> ${reply_view.bHit} </td>
+			</tr>
+			<tr>
+				<td> 이름 </td>
+				<td> <input type="text" name="bName" value="${reply_view.bName}"></td>
+			</tr>
+			<tr>
+				<td> 제목 </td>
+				<td> <input type="text" name="bTitle" value="${reply_view.bTitle}"></td>
+			</tr>
+			<tr>
+				<td> 내용 </td>
+				<td> <textarea rows="10"  name="bContent">${reply_view.bContent}</textarea></td>
+			</tr>
+			<tr >
+				<td colspan="2"><input type="submit" value="답변"> <a href="list.do" >목록</a></td>
+			</tr>
+		</form>
+	</table>
+				  
+				  
+				  
+				  
+				  
                
-               
-				  <h1><strong>FAQ</strong></h1>
-
-
-
-				<table class="table" width="500" cellpadding="0" cellspacing="0" border="1">
-					<tr>
-						<td>번호</td>
-						<td>이름</td>
-						<td>제목</td>
-						<td>날짜</td>
-						<td>히트</td>
-					</tr>
-					<c:forEach items="${list}" var="dto">
-						<tr>
-							<td>${dto.bId}</td>
-							<td>${dto.bName}</td>
-							<td><c:forEach begin="1" end="${dto.bIndent}">-</c:forEach>
-								<a href="content_view.do?bId=${dto.bId}">${dto.bTitle}</a></td>
-							<td>${dto.bDate}</td>
-							<td>${dto.bHit}</td>
-						</tr>
-					</c:forEach>
-					<tr>
-						<td colspan="5"><a href="write_view.do">글작성</a></td>
-					</tr>
-				</table>
-
-
-
-
-
-
-
-
-			</div>
-      </div>
-      </div>
+            
+            
+            
+	         </div>
+	      </div>
+	      </div>
 
    </form>
 

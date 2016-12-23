@@ -2,7 +2,7 @@ package com.burger.dto;
 
 import java.sql.Timestamp;
 
-public class BDto {
+public class BDto2 {
 
 	int bId;
 	String bName;
@@ -14,11 +14,11 @@ public class BDto {
 	int bStep;
 	int bIndent;
 	
-	public BDto() {
+	public BDto2() {
 		// TODO Auto-generated constructor stub
 	}
 	
-	public BDto(int bId, String bName, String bTitle, String bContent, Timestamp bDate, int bHit, int bGroup, int bStep, int bIndent) {
+	public BDto2(int bId, String bName, String bTitle, String bContent, Timestamp bDate, int bHit, int bGroup, int bStep, int bIndent) {
 		// TODO Auto-generated constructor stub
 		this.bId = bId;
 		this.bName = bName;

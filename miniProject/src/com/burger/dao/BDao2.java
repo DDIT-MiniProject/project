@@ -6,15 +6,15 @@ import java.sql.ResultSet;
 import java.sql.Timestamp;
 import java.util.ArrayList;
 
-import com.burger.dto.BDto;
+import com.burger.dto.BDto2;
 import com.test.jdbc.loader.DBCPInit;
 import com.test.jdbc.loader.DataSource;
 
-public class BDao {
+public class BDao2 {
 
 	DataSource dataSource;
 	
-	public BDao() {
+	public BDao2() {
 		// TODO Auto-generated constructor stub
 		
 		try {
@@ -36,7 +36,7 @@ public class BDao {
 		
 		try {
 			connection =dataSource.getConnection();
-			String query = "insert into mvc_board (bId, bName, bTitle, bContent, bHit, bGroup, bStep, bIndent) values (mvc_board_seq.nextval, ?, ?, ?, 0, mvc_board_seq.currval, 0, 0 )";
+			String query = "insert into mvc_board2 (bId, bName, bTitle, bContent, bHit, bGroup, bStep, bIndent) values (mvc_board2_seq.nextval, ?, ?, ?, 0, mvc_board2_seq.currval, 0, 0 )";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, bName);
 			preparedStatement.setString(2, bTitle);
@@ -57,9 +57,9 @@ public class BDao {
 		
 	}
 	
-	public ArrayList<BDto> list() {
+	public ArrayList<BDto2> list() {
 		
-		ArrayList<BDto> dtos = new ArrayList<BDto>();
+		ArrayList<BDto2> dtos = new ArrayList<BDto2>();
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -67,7 +67,7 @@ public class BDao {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "select bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent from mvc_board order by bGroup desc, bStep asc";
+			String query = "select bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent from mvc_board2 order by bGroup desc, bStep asc";
 			preparedStatement = connection.prepareStatement(query);
 			resultSet = preparedStatement.executeQuery();
 			
@@ -82,7 +82,7 @@ public class BDao {
 				int bStep = resultSet.getInt("bStep");
 				int bIndent = resultSet.getInt("bIndent");
 				
-				BDto dto = new BDto(bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent);
+				BDto2 dto = new BDto2(bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent);
 				dtos.add(dto);
 			}
 			
@@ -102,12 +102,12 @@ public class BDao {
 		return dtos;
 	}
 	
-	public BDto contentView(String strID) {
+	public BDto2 contentView(String strID) {
 		// TODO Auto-generated method stub
 		
 		upHit(strID);
 		
-		BDto dto = null;
+		BDto2 dto = null;
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
 		ResultSet resultSet = null;
@@ -116,7 +116,7 @@ public class BDao {
 			
 			connection = dataSource.getConnection();
 			
-			String query = "select * from mvc_board where bId = ?";
+			String query = "select * from mvc_board2 where bId = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, Integer.parseInt(strID));
 			resultSet = preparedStatement.executeQuery();
@@ -132,7 +132,7 @@ public class BDao {
 				int bStep = resultSet.getInt("bStep");
 				int bIndent = resultSet.getInt("bIndent");
 				
-				dto = new BDto(bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent);
+				dto = new BDto2(bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent);
 			}
 			
 		} catch (Exception e) {
@@ -160,7 +160,7 @@ public class BDao {
 		try {
 			connection = dataSource.getConnection();
 			
-			String query = "update mvc_board set bName = ?, bTitle = ?, bContent = ? where bId = ?";
+			String query = "update mvc_board2 set bName = ?, bTitle = ?, bContent = ? where bId = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, bName);
 			preparedStatement.setString(2, bTitle);
@@ -189,7 +189,7 @@ public class BDao {
 		try {
 			
 			connection = dataSource.getConnection();
-			String query = "delete from mvc_board where bId = ?";
+			String query = "delete from mvc_board2 where bId = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, Integer.parseInt(bId));
 			int rn = preparedStatement.executeUpdate();
@@ -208,9 +208,9 @@ public class BDao {
 		}
 	}
 	
-	public BDto reply_view(String str) {
+	public BDto2 reply_view(String str) {
 		// TODO Auto-generated method stub
-		BDto dto = null;
+		BDto2 dto = null;
 		
 		Connection connection = null;
 		PreparedStatement preparedStatement = null;
@@ -218,7 +218,7 @@ public class BDao {
 		try {
 			
 			connection = dataSource.getConnection();
-			String query = "select * from mvc_board where bId = ?";
+			String query = "select * from mvc_board2 where bId = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, Integer.parseInt(str));
 			resultSet = preparedStatement.executeQuery();
@@ -234,7 +234,7 @@ public class BDao {
 				int bStep = resultSet.getInt("bStep");
 				int bIndent = resultSet.getInt("bIndent");
 				
-				dto = new BDto(bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent);
+				dto = new BDto2(bId, bName, bTitle, bContent, bDate, bHit, bGroup, bStep, bIndent);
 			}
 			
 		} catch (Exception e) {
@@ -263,7 +263,7 @@ public class BDao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "insert into mvc_board (bId, bName, bTitle, bContent, bGroup, bStep, bIndent) values (mvc_board_seq.nextval, ?, ?, ?, ?, ?, ?)";
+			String query = "insert into mvc_board2 (bId, bName, bTitle, bContent, bGroup, bStep, bIndent) values (mvc_board2_seq.nextval, ?, ?, ?, ?, ?, ?)";
 			preparedStatement = connection.prepareStatement(query);
 			
 			preparedStatement.setString(1, bName);
@@ -296,7 +296,7 @@ public class BDao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "update mvc_board set bStep = bStep + 1 where bGroup = ? and bStep > ?";
+			String query = "update mvc_board2 set bStep = bStep + 1 where bGroup = ? and bStep > ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setInt(1, Integer.parseInt(strGroup));
 			preparedStatement.setInt(2, Integer.parseInt(strStep));
@@ -323,7 +323,7 @@ public class BDao {
 		
 		try {
 			connection = dataSource.getConnection();
-			String query = "update mvc_board set bHit = bHit + 1 where bId = ?";
+			String query = "update mvc_board2 set bHit = bHit + 1 where bId = ?";
 			preparedStatement = connection.prepareStatement(query);
 			preparedStatement.setString(1, bId);
 			

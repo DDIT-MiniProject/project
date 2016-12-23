@@ -48,7 +48,6 @@
 </head>
 <body>
    <form action="">
-   <div class="container-fluid text-center">
          <div class="row content">
             <div class="col-sm-2 sidenav">
                <p>
@@ -60,9 +59,7 @@
                <p>
                   <a href="<%=request.getContextPath()%>/qna/notice/notice.jsp">공지사항</a>
                </p>
-               <p>
-                  <a href="<%=request.getContextPath()%>/qna/board/list.jsp">일반게시판</a>
-               </p>
+               
                
                
             </div>
@@ -73,41 +70,45 @@
                
                
 				  <h1><strong>FAQ</strong></h1>
-
-
-
-				<table class="table" width="500" cellpadding="0" cellspacing="0" border="1">
-					<tr>
-						<td>번호</td>
-						<td>이름</td>
-						<td>제목</td>
-						<td>날짜</td>
-						<td>히트</td>
-					</tr>
-					<c:forEach items="${list}" var="dto">
-						<tr>
-							<td>${dto.bId}</td>
-							<td>${dto.bName}</td>
-							<td><c:forEach begin="1" end="${dto.bIndent}">-</c:forEach>
-								<a href="content_view.do?bId=${dto.bId}">${dto.bTitle}</a></td>
-							<td>${dto.bDate}</td>
-							<td>${dto.bHit}</td>
-						</tr>
-					</c:forEach>
-					<tr>
-						<td colspan="5"><a href="write_view.do">글작성</a></td>
-					</tr>
-				</table>
-
-
-
-
-
-
-
-
-			</div>
-      </div>
+				  
+				
+				
+				<table width="500" cellpadding="0" cellspacing="0" border="1">
+		<form action="modify.do" method="post">
+			<input type="hidden" name="bId" value="${content_view.bId}">
+			<tr>
+				<td> 번호 </td>
+				<td> ${content_view.bId} </td>
+			</tr>
+			<tr>
+				<td> 히트 </td>
+				<td> ${content_view.bHit} </td>
+			</tr>
+			<tr>
+				<td> 이름 </td>
+				<td> <input type="text" name="bName" value="${content_view.bName}"></td>
+			</tr>
+			<tr>
+				<td> 제목 </td>
+				<td> <input type="text" name="bTitle" value="${content_view.bTitle}"></td>
+			</tr>
+			<tr>
+				<td> 내용 </td>
+				<td> <textarea rows="10" name="bContent" >${content_view.bContent}</textarea></td>
+			</tr>
+			<tr >
+				<td colspan="2"> <input type="submit" value="수정"> &nbsp;&nbsp; <a href="list.do">목록보기</a> &nbsp;&nbsp; <a href="delete.do?bId=${content_view.bId}">삭제</a> &nbsp;&nbsp; <a href="reply_view.do?bId=${content_view.bId}">답변</a></td>
+			</tr>
+		</form>
+	</table>
+				  
+				  
+				  
+               
+            
+            
+            
+         </div>
       </div>
 
    </form>
