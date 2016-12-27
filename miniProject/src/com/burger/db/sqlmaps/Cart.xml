@@ -25,4 +25,11 @@
 		delete from cart where cseq=#cseq#
 	</delete>
 	
+	<update id="updateCart" parameterClass="cart">
+		update cart set
+		id=#id#, pseq=#pseq#, quantity=#quantity#, indate=#indate#, mname=#mname#, pname=#pname#, price2=#price2#
+		where cseq=#cseq#
+	</update>
+	
+	
 </sqlMap>

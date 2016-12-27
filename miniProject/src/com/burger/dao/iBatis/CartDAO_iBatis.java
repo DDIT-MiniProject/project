@@ -43,4 +43,10 @@ public class CartDAO_iBatis implements CartDAO {
 		client.delete("deleteCart",cseq);
 	}
 
+	@Override
+	public int updateCart(CartVO cartVO) throws SQLException {
+		int result = (Integer)client.update("updateCart", cartVO);
+		return result;
+	}
+
 }

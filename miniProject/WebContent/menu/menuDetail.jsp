@@ -67,7 +67,7 @@ table{
          <div class="row content">
             <div class="col-sm-2 sidenav">
                <p>
-                  <img src="<%=request.getContextPath()%>/images/menu2.png" id="memberCheck">
+                  <img src="images/menu2.png" id="memberCheck">
                </p>
                <p>
                   <a href="menuForm.do">스페셜오퍼</a>
@@ -95,7 +95,7 @@ table{
                </p>
               
               		<table>
-              			<tr><td colspan="3"><img src="<%=request.getContextPath()%>/images/menu/${productVO.name }.png" width="350px" height="370px"></td></tr>
+              			<tr><td colspan="3"><img src="images/menu/${productVO.name }.png" width="350px" height="370px"></td></tr>
               			<tr>
               				<td>수량 : 
               					<select name="quantity">
