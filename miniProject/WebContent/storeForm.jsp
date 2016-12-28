@@ -13,6 +13,7 @@ function searchCheck(form){
 	form.action = "searchStore.do?key="+key;
 	form.submit();
 }
+
 </script>
 <link rel="stylesheet"
 	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -20,6 +21,9 @@ function searchCheck(form){
 	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
 	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script type="text/javascript"	src="https://openapi.map.naver.com/openapi/v3/maps.js?clientId=xVmefpl0uQOwv3mBNFn_"></script>
+	
+	
 <style>
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 
@@ -48,6 +52,10 @@ table{
 #dd {
 	margin-top: 30px;
 	margin-left: 60px;
+}
+#map{
+	margin-left: center;
+	margin: auto;
 }
 </style>
 </head>
@@ -83,12 +91,14 @@ table{
     					<th>매장명</th>
     					<th>주소</th>
     					<th>이용가능시간</th>
+    					<th>매장위치</th>
     				</tr>
     			<c:forEach var="store" items="${storeList }" varStatus="status">
 					<tr>
     					<td>${store.name }</td>
     					<td>${store.address }</td>
     					<td>${store.time }</td>
+    					<td><a href='${store.url }' target="_blank" class='button h25 white w60'>확인하기</a></td>
     				</tr>
     			</c:forEach>
     				<tr>
@@ -96,15 +106,34 @@ table{
     				</tr>
     				<tr>
     				<td colspan="3">
-					<video src="<%=request.getContextPath()%>/video/통새우와퍼.mp4"width="700" height="400" autoplay="autoplay"></video>
+					<%-- <video src="<%=request.getContextPath()%>/video/통새우와퍼.mp4"width="700" height="400" autoplay="autoplay"></video> --%>
+					
 					</td>
 					</tr>
 				</table>
 				</div>
 			</div>
 		</div>
+		<div id="map" style="width: 1100px; height: 400px;"></div>
 
 	</form>
+	<script>
+	var mapOptions = {
+			center : new naver.maps.LatLng(36.3509397, 127.3873025),
+			zoom : 20
+			
+		} 
+		var map = new naver.maps.Map('map', {
+		    center: new naver.maps.LatLng(36.3509397, 127.3873025),
+		    zoom: 20
+		});
+
+		var marker = new naver.maps.Marker({
+		    position: new naver.maps.LatLng(36.3509397, 127.3873025),
+		    map: map,
+		    icon: '<%=request.getContextPath()%>/images/pin.png'
+		});
+	</script>
 
 </body>
 </html>
