@@ -45,6 +45,10 @@ table{
 	border-collapse:collapse; 
 	border:1px gray solid;
 }
+#dd {
+	margin-top: 30px;
+	margin-left: 60px;
+}
 </style>
 </head>
 <body>
@@ -63,7 +67,7 @@ table{
 						<a href="<%=request.getContextPath()%>/memberOrderForm.jsp">회원주문</a>
 					</p>
 				</div>
-				<div class="col-sm-8 text-left">
+				<div class="col-sm-8 text-left" id="dd">
 					<h1>BURGER KING 배달매장찾기</h1>
 					<h3>해당 주소를 입력하세요</h3>
 				<table>
@@ -90,8 +94,12 @@ table{
     				<tr>
     					<td colspan="6" style="text-align: center;"> ${paging} </td>
     				</tr>
-				</table>
+    				<tr>
+    				<td colspan="3">
 					<video src="<%=request.getContextPath()%>/video/통새우와퍼.mp4"width="700" height="400" autoplay="autoplay"></video>
+					</td>
+					</tr>
+				</table>
 				</div>
 			</div>
 		</div>

@@ -46,8 +46,12 @@
    border: 1px solid blue;
 }
 #abc{
-font-size: 10pt;
-
+	font-size: 15pt;
+	margin-top: 30px;
+	margin-left: 80px;
+}
+#dd{
+	background: #ff9900;
 }
 
 </style>
@@ -76,6 +80,9 @@ font-size: 10pt;
             <div class="col-sm-8 text-left">
           
                <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
+               <tr>
+               <td id="dd" colspan="5"><h1>일반게시판</h1></td>
+               </tr>
 		<tr>
 			<td>번호</td>
 			<td>이름</td>
