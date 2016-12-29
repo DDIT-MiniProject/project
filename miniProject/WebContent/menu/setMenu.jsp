@@ -144,7 +144,7 @@ function cart_go(pk,idx){
               									</select>&nbsp;&nbsp;
               								
 											<button type="button" class="btn btn-warning btn-lg" onclick="cart_go(${productVO.pseq},${status.index })">장바구니</button>&nbsp;&nbsp;
-											<button type="button" class="btn btn-primary btn-lg" onclick="">주문하기</button>
+											<button type="button" class="btn btn-primary btn-lg" onclick="orderForm.do">주문하기</button>
 											</span>
 										</div>
 										<div class="modal-footer">
