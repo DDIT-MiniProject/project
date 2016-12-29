@@ -9,8 +9,7 @@
 <title>우편 번호 검색</title>
 <style type="text/css">
 body{
-	background: black;
-	color: white;
+	clor:black;
 }
 #dongName{
 	color: black;
@@ -18,14 +17,11 @@ body{
 #popup{   
     padding: 0 10px;
     padding-top: auto;
-	font-family: "1훈하얀고양이" ,"Times New Roman", Georgia, Serif;
 	font-size: 15pt;
-	background: black; 
 }
 #popup h1 {
-   font-family: "Times New Roman", Times, serif;
    font-size: 45px;
-   color: #CCC;
+    color:black;
    font-weight: normal;
 }
 table#zipcode {
@@ -38,7 +34,7 @@ table#zipcode {
 table#zipcode th, table#zipcode td{   
    text-align: center;
    border-bottom: 1px dotted  #fff;  
-   color:#FFF;   
+    color:black;  
 }
 table th, td{
   padding: 10px;
@@ -47,11 +43,11 @@ table#zipcode  a{
     display:block; 
     height:20px;
     text-decoration:none;
-    color:#fff;
+    color:black;
     padding: 10px;
 }
 table#zipcode a:hover{
-    color: #F90;
+     color:black;
     font-weight: bold;
 }
 </style>

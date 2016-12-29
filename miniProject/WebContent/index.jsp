@@ -22,6 +22,10 @@
 	background: white;
 }
 
+body{
+	text-align: center;
+}
+
 h1, h2, h3, h4, h5, h6 {
 	font-family: "Playfair Display";
 	letter-spacing: 5px;
@@ -41,9 +45,12 @@ footer {
 }
 
 .carousel-inner img {
-	width: 100%; /* Set width to 100% */
+	/* width: 100%; /* Set width to 100% */ */
 	margin: auto;
 	min-height: 200px;
+	/* height:500px; */
+	
+	
 }
 
 /* Hide the carousel text when the screen is less than 600 pixels wide */
@@ -59,12 +66,18 @@ footer {
 }
 
 #SNS {
-	background: #ffbf80;
+	background: #ff9900;
 	color: white;
 }
 
 #table0 {
 	margin: auto;
+}
+
+.slide{
+	margin-left:5%;
+	margin-right:5%;
+	height:500px;
 }
 </style>
 </head>
@@ -81,26 +94,26 @@ footer {
 		<!-- Wrapper for slides -->
 		<div class="carousel-inner" role="listbox">
 			<div class="item active">
-				<img src="<%=request.getContextPath()%>/images/ca_01.jpg" alt="세상에서 가장맛있는 햄버거">
+				<img src="<%=request.getContextPath()%>/images/ca_01.jpg" alt="세상에서 가장맛있는 햄버거" style="height: 500px;">
 				<div class="carousel-caption">
 					<p>Delivery</p>
 				</div>
 			</div>
 
 			<div class="item">
-				<img src="<%=request.getContextPath()%>/images/ca_02.jpg" alt="세상에서 가장맛있는 햄버거">
+				<img src="<%=request.getContextPath()%>/images/ca_02.jpg" alt="세상에서 가장맛있는 햄버거" style="height: 500px;">
 				<div class="carousel-caption">
 					<p>Event : 12.01~12.31</p>
 				</div>
 			</div>
 			<div class="item">
-				<img src="<%=request.getContextPath()%>/images/ca_03.jpg" alt="세상에서 가장맛있는 햄버거">
+				<img src="<%=request.getContextPath()%>/images/ca_03.jpg" alt="세상에서 가장맛있는 햄버거" style="height: 500px;">
 				<div class="carousel-caption">
 					<h3>New</h3>
 				</div>
 			</div>
 			<div class="item">
-				<img src="<%=request.getContextPath()%>/images/ca_04.jpg" alt="세상에서 가장맛있는 햄버거">
+				<img src="<%=request.getContextPath()%>/images/ca_04.jpg" alt="세상에서 가장맛있는 햄버거" style="height: 500px;">
 				<div class="carousel-caption">
 					<h3>New</h3>
 					<p>16.900원</p>
@@ -120,20 +133,21 @@ footer {
 		</a>
 	</div>
 
-	<div class="container text-center">
+
 		<h3>Best Seller</h3>
 		<br>
 		<div class="row">
 			<table id="table0">
 				<tr id="SmartApp">
-					<td><video src="<%=request.getContextPath()%>/video/할라피뇨.mp4" controls="controls"
+					<td>
+						<video src="<%=request.getContextPath()%>/video/할라피뇨.mp4" controls="controls"
 							poster="<%=request.getContextPath()%>/images/videoMain.jpg" width="480" height="270"
 							autoplay="autoplay" loop="loop"></video>
+					</td>
 					<td>
-					<td colspan="20">
 						<p>TASTE IS KING</p>
 						<p>
-							<strong>SMART APP</strong>
+						<strong>SMART APP</strong>
 						</p>
 						<p class="img">
 							<a
@@ -148,12 +162,14 @@ footer {
 							<span>버거킹 앱 바로받기</span>
 						</p>
 					</td>
-				</tr>
-				<tr id="SNS">
-					<td><video src="<%=request.getContextPath()%>/video/통새우와퍼.mp4" controls="controls"
+					<td>&nbsp;&nbsp;</td>
+					<td>&nbsp;&nbsp;</td>
+					
+					<td id="SNS">
+					<video src="<%=request.getContextPath()%>/video/통새우와퍼.mp4" controls="controls"
 							poster="<%=request.getContextPath()%>/images/videoMain01.jpg" width="480" height="270"
 							autoplay="autoplay" loop="loop"></video></td>
-					<td colspan="20">
+					<td>
 						<p>BURGERKING</p>
 						<p>
 							<strong>SNS</strong>
@@ -168,13 +184,13 @@ footer {
 								alt="버거킹 유튜브" /></a>
 						</p>
 						<p>
-							<span>버거킹 소셜네트워크 바로가기</span>
+							버거킹<br> 소셜네트워크 <br>바로가기
 						</p>
 					</td>
 				</tr>
+				
 
 			</table>
 		</div>
-	</div>
 </body>
 </html>
