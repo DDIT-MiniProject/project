@@ -86,16 +86,42 @@ font-size: 15pt;
 			</tr>
 			<tr>
 				<td> 이름 </td>
-				<td> <input type="text" size="50" name="bName" value="${content_view.bName}"></td>
+				<td> <input type="text" size="50" name="bName" readonly value="${content_view.bName}"></td>
 			</tr>
-			<tr>
-				<td> 제목 </td>
-				<td> <input type="text" size="50" name="bTitle" value="${content_view.bTitle}"></td>
-			</tr>
-			<tr>
-				<td> 내용 </td>
-				<td> <textarea rows="10" name="bContent" cols="50" >${content_view.bContent}</textarea></td>
-			</tr>
+			
+				
+				<c:choose>
+				    <c:when test="${ 'admin' eq sessionScope.loginUser.getId() }">
+						
+						<tr>
+							<td> 제목 </td>
+							<td> <input type="text" size="50" name="bTitle" value="${content_view.bTitle}"></td>
+						</tr>
+						<tr>
+							<td> 내용 </td>
+							<td> <textarea rows="10" name="bContent" cols="50">${content_view.bContent}</textarea></td>
+						</tr>
+						
+				    </c:when>
+				    <c:otherwise>
+							
+						<tr>
+							<td> 제목 </td>
+							<td> <input type="text" size="50" name="bTitle" readonly value="${content_view.bTitle}"></td>
+						</tr>
+						<tr>
+							<td> 내용 </td>
+							<td> <textarea rows="10" name="bContent" readonly cols="50">${content_view.bContent}</textarea></td>
+						</tr>	
+							
+				    </c:otherwise>
+				</c:choose>
+			
+			
+			
+			
+			
+			
 			<tr >
 				<td colspan="2"> 
 	
