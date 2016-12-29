@@ -22,6 +22,13 @@ public class OrderFormAction implements Action{
 
 		String url="orderForm.jsp";
 		
+		HttpSession session = request.getSession();
+		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
+		
+		if(loginUser == null){
+			url="loginForm.do";
+		}
+		
 		return url;
 	}
 
