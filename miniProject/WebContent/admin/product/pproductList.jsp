@@ -18,11 +18,11 @@
 }
 </style>
 <script type="text/javascript">
-$(function(){
-	$('#totalBtn').click(function(){
-		$(location).attr('href', 'adminProductInsertForm.do');
+	$(function() {
+		$('#totalBtn').click(function() {
+			$(location).attr('href', 'adminProductInsertForm.do');
+		});
 	});
-});
 </script>
 <div class="container">
 	<h2>상품리스트</h2>
@@ -36,7 +36,7 @@ $(function(){
 		<Br>
 		<button type="submit" class="btn btn-default">검색</button>
 		<button type="button" class="btn btn-default" id="totalBtn">상품등록</button>
-		
+
 
 
 		<div class="table-responsive">
@@ -49,7 +49,8 @@ $(function(){
 						<th>상품명</th>
 						<th>가격</th>
 						<th>제품등록일</th>
-						<th>구분<th>
+						<th>구분
+						<th>
 					</tr>
 				</thead>
 				<tbody>
@@ -64,23 +65,104 @@ $(function(){
 							<c:forEach items="${productList }" var="productVO">
 								<tr>
 									<td align="center">${productVO.pseq }</td>
-									
-									
-									<td><c:choose><c:when test="${productVO.kind eq '12'}">스페셜오퍼</c:when>
-									<c:when test="${productVO.kind eq '13'}">딜리버리팩</c:when>
-									<c:when test="${productVO.kind eq '14'}">세트메뉴</c:when>
-									<c:when test="${productVO.kind eq '15'}">버거</c:when>
-									<c:when test="${productVO.kind eq '16'}">사이드</c:when>
-									<c:when test="${productVO.kind eq '17'}">드링크</c:when>
-									<c:otherwise>${productVO.kind }</c:otherwise>
-									</c:choose>
-									</td>
-									<td><a href="adminProductDetail.do?pseq=${productVO.pseq }">
-											${productVO.name} </a></td>
+
+
+									<td><c:choose>
+											<c:when test="${productVO.kind eq '12'}">스페셜오퍼</c:when>
+											<c:when test="${productVO.kind eq '13'}">딜리버리팩</c:when>
+											<c:when test="${productVO.kind eq '14'}">세트메뉴</c:when>
+											<c:when test="${productVO.kind eq '15'}">버거</c:when>
+											<c:when test="${productVO.kind eq '16'}">사이드</c:when>
+											<c:when test="${productVO.kind eq '17'}">드링크</c:when>
+											<c:otherwise>${productVO.kind }</c:otherwise>
+										</c:choose></td>
+									<td><a href="#" data-toggle="modal"
+											data-target="#${productVO.pseq }">${productVO.name}</a>
+
+
+										<div class="modal fade" id="${productVO.pseq }" role="dialog">
+											<div class="modal-dialog">
+
+												<!-- Modal content-->
+												<div class="modal-content">
+													<div class="modal-header">
+														<button type="button" class="close" data-dismiss="modal">&times;</button>
+														<h4 class="modal-title">상품 상세 정보</h4>
+													</div>
+													<div class="modal-body">
+														<table id="list" class="table table-condensed">
+															<thead>
+																<tr>
+																	<th width="100px">상품분류</th>
+																	<td><select name="kind">
+
+																			<option><c:choose>
+																					<c:when test="${productVO.kind eq '12'}">스페셜오퍼</c:when>
+																					<c:when test="${productVO.kind eq '13'}">딜리버리팩</c:when>
+																					<c:when test="${productVO.kind eq '14'}">세트메뉴</c:when>
+																					<c:when test="${productVO.kind eq '15'}">버거</c:when>
+																					<c:when test="${productVO.kind eq '16'}">사이드</c:when>
+																					<c:when test="${productVO.kind eq '17'}">드링크</c:when>
+
+																				</c:choose>
+
+																			</option>
+
+
+																	</select></td>
+																</tr>
+															</thead>
+															<tbody>
+																<tr>
+																	<th>상품번호</th>
+																	<td><input type="text" class="form-control"
+																		name="pseq" value="${productVO.pseq }" readonly></td>
+																	<td>
+																</tr>
+																<tr>
+																	<th>상품명</th>
+																	<td><input type="text" class="form-control"
+																		name="name" value="${productVO.name }" readonly></td>
+																</tr>
+																<tr>
+																	<th>가격</th>
+																	<td><input type="text" class="form-control"
+																		name="price2" value="${productVO.price2 }" readonly></td>
+																</tr>
+																<tr>
+																	<th>상세설명</th>
+																	<td><textarea class="form-control" name="content"
+																			readonly>${productVO.content }</textarea></td>
+																</tr>
+																<tr style="height:300px">
+																	<th>상품이미지</th>
+																	<td>
+																	</td>
+																</tr>
+
+															</tbody>
+														</table>
+														<img src="<%=request.getContextPath() %>/images/menu/${productVO.image}" />
+
+
+
+
+
+													</div>
+													<div class="modal-footer">
+														<button type="button" class="btn btn-default"
+															data-dismiss="modal">Close</button>
+													</div>
+												</div>
+
+											</div>
+										</div></td>
+
 									<td><fmt:formatNumber value="${productVO.price2}" /></td>
 									<td><fmt:formatDate value="${productVO.indate}" /></td>
-									<td><a href="adminProductUpdateForm.do?pseq=${productVO.pseq }">수정</a>
-									/<a href="adminProductDeleteForm.do?pseq=${productVO.pseq }">삭제</a></td>
+									<td><a
+										href="adminProductUpdateForm.do?pseq=${productVO.pseq }">수정</a>
+										/<a href="adminProductDeleteForm.do?pseq=${productVO.pseq }">삭제</a></td>
 								</tr>
 							</c:forEach>
 
@@ -93,7 +175,10 @@ $(function(){
 			</table>
 		</div>
 	</form>
+
 </div>
+
+
 </body>
 </html>
 

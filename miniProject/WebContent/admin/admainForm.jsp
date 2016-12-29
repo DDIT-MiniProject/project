@@ -21,16 +21,25 @@
  		form.submit();
  	}
   </script>
+  <style>
+  #maintable{
+  width:0px;
+  margin:auto;
+  }
+  
+  
+  </style>
 </head>
 <body>
 <form>
 <h1 style="text-align:center">Admin Main</h1>
 <hr>
-<table>
+<table id="maintable">
 <tr>
 <td>
-<div class="table-responsive">   
-<h3>주문 리스트 <span class="label label-danger">${orderResult }</span>  </h3>      
+  
+<h3>주문 리스트 <span class="label label-danger">${orderResult }</span>  <input type="button" class="btn btn-default" style="width: 100px"
+      value="더보기" id="savebtn" onclick="savebtnClick(this.form);"> </h3>      
   <table class="table">
     <thead>
       <tr>
@@ -64,11 +73,45 @@
   </tbody>
   </table>
   
-  <input type="button" class="btn btn-default" style="width: 100px"
-      value="더보기" id="savebtn" onclick="savebtnClick(this.form);">
+ 
     
-     </div>  
+   
      
+     </td>
+     <td>
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     </td>
+     <td>
+     <h3>Qna 리스트 <span class="label label-danger">${qnaResult }</span>  <input type="button" class="btn btn-default" style="width: 100px"
+      value="더보기" id="savebtn" onclick="savebtnClick(this.form);"> </h3>   
+     <table class="table">
+     <thead>
+      <tr>
+				<th>번호(답변여부)</th>
+				<th>제목</th>
+				<th>작성자</th>
+				<th>작성일</th>
+      </tr>
+      </thead>
+      <tbody>
+    
+    <c:forEach items="${qnaList}" var="qnaVO">
+      <tr>
+					<td>${qnaVO.qseq} <c:choose>
+							<c:when test='${qnaVO.rep=="1"}'>(미처리)</c:when>
+							<c:otherwise>(답변처리완료)</c:otherwise>
+						</c:choose>
+					</td>
+					<td><a href="adminQnaDetail.do?qseq=${qnaVO.qseq}">
+							${qnaVO.subject} </a></td>
+					<td>${qnaVO.id}</td>
+					<td><fmt:formatDate value="${qnaVO.indate}" /></td>
+				</tr>
+			</c:forEach>
+   </tbody>
+  </table>
      </td>
      
      </table>  

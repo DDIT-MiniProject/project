@@ -9,7 +9,7 @@
 	<typeAlias alias="qna" type="com.burger.dto.QnaVO" />
 	
 	<select id="listQna" parameterClass="str" resultClass="qna">
-		select * from qna where id=#id# order by qseq desc
+		select * from mvc_board2 where id=#id# order by qseq desc
 	</select>
 	
 	<select id="getQna" parameterClass="int" resultClass="qna">
@@ -32,7 +32,11 @@
 	    select count(*) from qna where rep='1'
 	</select>
 	
-	<select id="epistasisList" resultClass="qna">
+	<select id="epistasisQnaList" resultClass="qna">
 	   SELECT * FROM qna WHERE ROWNUM &lt; '6'
+	</select>
+	
+	<select id="SearchQnaList" resultClass="qna">
+	   
 	</select>
 </sqlMap>
