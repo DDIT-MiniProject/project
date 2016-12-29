@@ -60,8 +60,21 @@ table{
 	text-align:center;
 }
 </style>
+<script>
+function init(){ 
+    // 부모페이지의 값을 불러들이기 위함 window.dialogArguments 포인트! 
+	var obj = new Object();
+    obj. some_id = some_id ;
+    obj. some_name = some_name ;
+	
+    if (window.opener)
+        window.opener.returnValue = obj; 
+    window.returnValue = obj;
+    self.close();
+}
+</script>
 </head>
-<body>
+<body onload="init()">
    <form action="">
       <div class="container-fluid text-center">
          <div class="row content">
