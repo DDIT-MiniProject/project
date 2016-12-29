@@ -57,16 +57,6 @@ table{
 	margin-left: center;
 	margin: auto;
 }
-.xy{
-	position:relative;
-	border:0px;
-	display:none;
-}
-.yx{
-	position:relative;
-	border:0px;
-	display:none;
-}
 </style>
 </head>
 <body>
@@ -78,7 +68,7 @@ table{
 						<img src="<%=request.getContextPath()%>/images/storeSearch.png">
 					</p>
 					<p>
-						<a href="storeForm.do">배달매장찾기</a>
+						<a href="<%=request.getContextPath()%>/storeForm.jsp">배달매장찾기</a>
 					</p>
 					<p>
 						<%-- <a href="<%=request.getContextPath()%>/orderForm.jsp">비회원주문 /</a> --%>
@@ -108,10 +98,7 @@ table{
     					<td>${store.name }</td>
     					<td>${store.address }</td>
     					<td>${store.time }</td>
-    					<input type="text" class="xy" id="x${status.index }" value="${store.x }"/>
-    					<input type="text" class="yx" id="y${status.index }" value="${store.y }"/>
-    					<%-- <td><a href='${store.url }' target="_blank" class='button h25 white w60'>확인하기</a></td> --%>
-    					<td><a href='#' onclick="map(${status.index})" >확인하기</a></td>
+    					<td><a href='${store.url }' target="_blank" class='button h25 white w60'>확인하기</a></td>
     				</tr>
     			</c:forEach>
     				<tr>
@@ -134,31 +121,21 @@ table{
 	<!--                                                           -->
 	<script>
 	//이곳에서 작업이 이루어져서 div에 뿌려주면되는데... id = map x,y값 입력해서 map 뿌려줘보자.
-	function map(idx){
-		var x="x"+idx;
-		var xCode=document.getElementById(x).value;
-		var y="y"+idx;
-		var yCode=document.getElementById(y).value;
-		
-		var mapOptions = {
-				center : new naver.maps.LatLng(yCode, xCode),
-				zoom : 20
-				
-			} 
-			var map = new naver.maps.Map('map', {
-			    center: new naver.maps.LatLng(yCode, xCode),
-			    zoom: 20
-			});
+	var mapOptions = {
+			center : new naver.maps.LatLng(36.3509397, 127.3873025),
+			zoom : 20
+			
+		} 
+		var map = new naver.maps.Map('map', {
+		    center: new naver.maps.LatLng(36.3509397, 127.3873025),
+		    zoom: 20
+		});
 
-			var marker = new naver.maps.Marker({
-			    position: new naver.maps.LatLng(yCode, xCode),
-			    map: map,
-			    icon: '<%=request.getContextPath()%>/images/pin.png'
-			});
-		
-	}
-	
-	
+		var marker = new naver.maps.Marker({
+		    position: new naver.maps.LatLng(36.3509397, 127.3873025),
+		    map: map,
+		    icon: '<%=request.getContextPath()%>/images/pin.png'
+		});
 	</script>
 <!--                                                           -->
 </body>

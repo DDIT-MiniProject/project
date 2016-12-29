@@ -75,9 +75,9 @@ font-size: 15pt;
            
             <div class="col-sm-8 text-left">
           
-               <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
-		<form action="modify2.do" method="post" accept-charset="UTF-8">
-			<input type="hidden" name="bId" value="${content_view.bId}">
+        <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
+			<form action="modify2.do" method="post" accept-charset="UTF-8">
+				<input type="hidden" name="bId" value="${content_view.bId}">
 			<tr>
 				<td> 번호 </td>
 				<td> ${content_view.bId} </td>
@@ -90,14 +90,38 @@ font-size: 15pt;
 				<td> 이름 </td>
 				<td> <input type="text" size="50" name="bName" readonly value="${content_view.bName}"></td>
 			</tr>
-			<tr>
-				<td> 제목 </td>
-				<td> <input type="text" size="50" name="bTitle" value="${content_view.bTitle}"></td>
-			</tr>
-			<tr>
-				<td> 내용 </td>
-				<td> <textarea rows="10" name="bContent" cols="50">${content_view.bContent}</textarea></td>
-			</tr>
+				
+				
+				
+				
+				<c:choose>
+				    <c:when test="${ content_view.bName eq sessionScope.loginUser.getName() }">
+						
+						<tr>
+							<td> 제목 </td>
+							<td> <input type="text" size="50" name="bTitle" value="${content_view.bTitle}"></td>
+						</tr>
+						<tr>
+							<td> 내용 </td>
+							<td> <textarea rows="10" name="bContent" cols="50">${content_view.bContent}</textarea></td>
+						</tr>
+						
+				    </c:when>
+				    <c:otherwise>
+							
+						<tr>
+							<td> 제목 </td>
+							<td> <input type="text" size="50" name="bTitle" readonly value="${content_view.bTitle}"></td>
+						</tr>
+						<tr>
+							<td> 내용 </td>
+							<td> <textarea rows="10" name="bContent" readonly cols="50">${content_view.bContent}</textarea></td>
+						</tr>	
+							
+				    </c:otherwise>
+				</c:choose>
+				
+		
 			<tr >
 				<td colspan="2"> 
 				
