@@ -14,6 +14,7 @@ public class AdminStoreInsertFormAction implements Action {
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
 	    String url ="store/storeinsertForm.jsp";
+	    
 		return url;
 	}
 	

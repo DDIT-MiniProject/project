@@ -174,6 +174,12 @@ public class OrderDAO_iBatis implements OrderDAO {
 	public int newOrderSearch() throws SQLException {
 		int result=(int) client.queryForObject("newOrderSearch", null);
 		return result;
+	}
+
+	@Override
+	public ArrayList<OrderVO> epistasisList() throws SQLException {
+		ArrayList<OrderVO> orderList=(ArrayList<OrderVO>)client.queryForList("epistasisList", null);
+		return orderList;
 	}	
 
 }

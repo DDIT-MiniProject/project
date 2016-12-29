@@ -12,7 +12,13 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+.input-group {
+	width: 400px
+}
+</style>
 </head>
+
 <body>
 
 <div class="container">
@@ -20,7 +26,14 @@
   <br>
   <h2>Q&amp;A 리스트</h2>                                                                                      
   <div class="table-responsive">   
-  <form>       
+  <form action="adminQnaSearch.do" method="post">       
+  <div class="input-group">
+			<span class="input-group-addon"><i
+				class="glyphicon glyphicon-gift"></i></span> <input id="email" type="text"
+				class="form-control" name="key" placeholder="아이디명">
+		</div>
+		<Br>
+		<button type="submit" class="btn btn-default">검색</button>
   <table class="table">
     <thead>
       <tr>

@@ -53,4 +53,8 @@
 	<select id="totalOrderRecord" parameterClass="str" resultClass="int">
 		select count(*) from order_view where mname like '%'||#mname#||'%'
 	</select>
+	
+	<select id="epistasisList" resultClass="order">
+	   SELECT * FROM order_view WHERE ROWNUM &lt; '6'
+	</select>
  </sqlMap>

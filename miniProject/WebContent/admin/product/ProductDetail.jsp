@@ -78,7 +78,7 @@
     <th>상품이미지</th>
     <td>
    
-      <input type="file" name="image"readonly>${product.image }
+      <img src="<%=request.getContextPath()%>/images/menu/${productVO.image}"/>
     </td>
   </tr>    
             

@@ -17,6 +17,8 @@ public class AdminStoreInsertAction implements Action{
 	@Override
 	public String execute(HttpServletRequest request,
 			HttpServletResponse response) throws ServletException, IOException {
+		request.setCharacterEncoding("utf-8");
+		
 		String url="store/storeinsertForm.jsp?";
 		
 		StoreDAO storeDAO = StoreDAO_iBatis.getInstance();

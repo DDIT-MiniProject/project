@@ -35,4 +35,5 @@ public interface OrderDAO {
 	public int newOrderSearch() throws SQLException;
 	
 	public String pageNumber(int tpage, String name) throws SQLException;
+	public ArrayList<OrderVO> epistasisList() throws SQLException;
 }

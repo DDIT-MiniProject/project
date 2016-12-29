@@ -31,4 +31,12 @@
 	<select id="newQnaSearch" resultClass="int">
 	    select count(*) from qna where rep='1'
 	</select>
+	
+	<select id="epistasisQnaList" resultClass="qna">
+	   SELECT * FROM qna WHERE ROWNUM &lt; '6'
+	</select>
+	
+	<select id="SearchQnaList" parameterClass="str" resultClass="qna">
+	   select * from qna where id like '%'||#id#||'%'
+	</select>
 </sqlMap>

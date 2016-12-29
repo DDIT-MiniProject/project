@@ -106,11 +106,11 @@ body {
 							</a>
 						</c:when>
 						<c:otherwise>
-							<a href="adminLogout.do"> <span
+							<a href="<%=request.getContextPath()%>/index.do"> <span
 								class="glyphicon glyphicon-log-in"></span>Logout
 							</a>
 							
-							<a href="adminProductList.do"> <span
+							<a href="adminMain.do"> <span
 								class="glyphicon glyphicon-user"></span>Admin
 							</a>
 						</c:otherwise>
