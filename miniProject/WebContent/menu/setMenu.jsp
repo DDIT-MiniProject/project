@@ -45,7 +45,18 @@
    width: 80%;
    color: gray;
 }
+.modal-body{
+	margin-left: 130px;
+}
+
 </style>
+<script>
+function cart_go(pk,idx){
+	var id = "cnt"+idx;
+	var su = document.getElementById(id).value;
+	location.href="cartInsert.do?pseq="+pk+"&quantity="+su;
+};
+</script>
 </head>
 <body>
    <form action="">
@@ -74,6 +85,8 @@
                   <a href="drinkMenu.do">드링크</a>
                </p>
             </div>
+            
+            <div class="container">
             <div class="col-sm-8 text-left">
             	<strong><h2>세트메뉴 SET MENU</h2></strong>
                <p>
@@ -106,9 +119,45 @@
                	 
                	 <c:forEach items="${productList}" var="productVO">
   
-     			 <a href="menuDetail.do?pseq=${productVO.pseq }"><img src="images/menu/${productVO.name }.png" width="180px" height="190px"></a>
+     			 <%-- <a href="menuDetail.do?pseq=${productVO.pseq }"><img src="images/menu/${productVO.name }.png" width="180px" height="190px"></a> --%>
+     			 
+     			 <a href="#" data-toggle="modal"	data-target="#${productVO.pseq }"><img	src="images/menu/${productVO.name }.png" width="150px"
+								height="170px"></a>
+							<!-- Modal -->
+							<div class="modal fade" id="${productVO.pseq }" role="dialog">
+								<div class="modal-dialog">
+
+									<!-- Modal content-->
+									<div class="modal-content">
+										<div class="modal-header">
+											<button type="button" class="close" data-dismiss="modal">&times;</button>
+											<h4 class="modal-title">${productVO.name }</h4>
+										</div>
+										<div class="modal-body">
+											<img src="./images/menu/${productVO.name }.png" width="300px" height="320px" /><br>
+											<span>
+											
+											수량 : <select name="quantity" id="cnt${status.index }">
+	              									<c:forEach var="i" begin="1" end="10">
+	              										<option>${i}</option>
+	              									</c:forEach>
+              									</select>&nbsp;&nbsp;
+              								
+											<button type="button" class="btn btn-warning btn-lg" onclick="cart_go(${productVO.pseq},${status.index })">장바구니</button>&nbsp;&nbsp;
+											<button type="button" class="btn btn-primary btn-lg" onclick="">주문하기</button>
+											</span>
+										</div>
+										<div class="modal-footer">
+											<button type="button" class="btn btn-default"
+												data-dismiss="modal">Close</button>
+										</div>
+									</div>
+
+								</div>
+							</div>
 
    				 </c:forEach>
+   				 </div>
     
                	 
             </div>
