@@ -93,7 +93,6 @@ function cart_go(pk,idx){
 							<a href="drinkMenu.do">드링크</a>
 						</p>
 					</div>
-					
 					<div class="container">
 					<div class="col-sm-8 text-left">
 						<strong><h2>스페셜오퍼 SPECIAL OFFER</h2></strong>
