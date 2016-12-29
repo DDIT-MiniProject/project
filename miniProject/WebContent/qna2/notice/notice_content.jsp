@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR"
     pageEncoding="EUC-KR"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,6 +52,8 @@ font-size: 15pt;
 </style>
 </head>
 <body>
+
+
    <div class="container-fluid text-center">
          <div class="row content">
             <div class="col-sm-2 sidenav">
@@ -80,12 +83,12 @@ font-size: 15pt;
 				<td> ${content_view.bId} </td>
 			</tr>
 			<tr>
-				<td> 히트 </td>
+				<td> 조회수 </td>
 				<td> ${content_view.bHit} </td>
 			</tr>
 			<tr>
 				<td> 이름 </td>
-				<td> <input type="text" size="50" name="bName" value="${content_view.bName}"></td>
+				<td> <input type="text" size="50" name="bName" readonly value="${content_view.bName}"></td>
 			</tr>
 			<tr>
 				<td> 제목 </td>
@@ -96,7 +99,16 @@ font-size: 15pt;
 				<td> <textarea rows="10" name="bContent" cols="50">${content_view.bContent}</textarea></td>
 			</tr>
 			<tr >
-				<td colspan="2"> <input type="submit" value="수정"> &nbsp;&nbsp; <a href="qnaNotice2.do">목록보기</a> &nbsp;&nbsp; <a href="delete2.do?bId=${content_view.bId}">삭제</a> &nbsp;&nbsp;</td>
+				<td colspan="2"> 
+				
+				
+				<c:if test= "${ content_view.bName eq sessionScope.loginUser.getName() }">
+					<input type="submit" value="수정"> &nbsp;&nbsp;
+					<a href="delete2.do?bId=${content_view.bId}">삭제</a> &nbsp;&nbsp;
+				</c:if>
+				
+				
+				 <a href="qnaNotice2.do">목록보기</a> &nbsp;&nbsp; </td>
 			</tr>
 		</form>
 	</table>
