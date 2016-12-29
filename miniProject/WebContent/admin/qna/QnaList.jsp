@@ -26,11 +26,11 @@
   <br>
   <h2>Q&amp;A 리스트</h2>                                                                                      
   <div class="table-responsive">   
-  <form>       
+  <form action="adminQnaSearch.do" method="post">       
   <div class="input-group">
 			<span class="input-group-addon"><i
 				class="glyphicon glyphicon-gift"></i></span> <input id="email" type="text"
-				class="form-control" name="key" placeholder="상품명">
+				class="form-control" name="key" placeholder="아이디명">
 		</div>
 		<Br>
 		<button type="submit" class="btn btn-default">검색</button>

@@ -66,4 +66,10 @@ public class QnaDAO_iBatis implements QnaDAO {
 		ArrayList<QnaVO> qnaList = (ArrayList<QnaVO>)client.queryForList("epistasisQnaList", null);
 		return qnaList;
 	}
+
+	@Override
+	public ArrayList<QnaVO> SearchQnaList(String id) throws SQLException {
+		ArrayList<QnaVO> qnaList =(ArrayList<QnaVO>)client.queryForList("SearchQnaList", id);
+		return qnaList;
+	}
 }

@@ -23,4 +23,6 @@ public interface QnaDAO {
   
   public ArrayList<QnaVO> epistasisQnaList() throws SQLException;
   
+  public ArrayList<QnaVO> SearchQnaList(String id) throws SQLException;
+  
 }

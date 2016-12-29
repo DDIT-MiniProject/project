@@ -10,7 +10,7 @@
 <script type="text/javascript">
 function searchCheck(form){
 	var key = form.key.value;
-	form.action = "searchStore.do?key="+key;
+	form.action = "adminStoreSearch.do?key="+key;
 	form.submit();
 }		
 </script>
@@ -56,7 +56,7 @@ table{
 						<img src="<%=request.getContextPath()%>/images/storeSearch.png">
 					</p>
 					<p>
-						<a href="adminStoreInsert.do">신규매장등록</a>
+						<a href="adminStoreInsertForm.do">신규매장등록</a>
 					</p>
 					<%-- <p>
 						<a href="<%=request.getContextPath()%>/orderForm.jsp">비회원주문 /</a>

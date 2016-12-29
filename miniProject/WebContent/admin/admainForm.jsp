@@ -20,6 +20,12 @@
  		form.method='post';
  		form.submit();
  	}
+ 	
+ 	function savebtnClick1(form){
+ 		form.action="adminQnaList.do";
+ 		form.method='post';
+ 		form.submit();
+ 	}
   </script>
   <style>
   #maintable{
@@ -85,7 +91,7 @@
      </td>
      <td>
      <h3>Qna 리스트 <span class="label label-danger">${qnaResult }</span>  <input type="button" class="btn btn-default" style="width: 100px"
-      value="더보기" id="savebtn" onclick="savebtnClick(this.form);"> </h3>   
+      value="더보기" id="savebtn" onclick="savebtnClick1(this.form);"> </h3>   
      <table class="table">
      <thead>
       <tr>
