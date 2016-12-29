@@ -139,7 +139,7 @@
 							</c:forEach>
 
 							<tr>
-								<td colspan="5" style="text-align: center;">${paging}</td>
+								<td colspan="4" style="text-align: center;">${paging}</td>
 							</tr>
 						</c:otherwise>
 					</c:choose>
