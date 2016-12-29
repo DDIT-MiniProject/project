@@ -23,7 +23,7 @@ public class LoginFormAction implements Action {
 		
 		if (loginUser != null) {
 			url = "index.do";
-		} 
+		}
 		
 		return url;	
 	}

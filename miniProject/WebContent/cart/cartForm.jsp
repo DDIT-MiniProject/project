@@ -27,10 +27,10 @@
 function menu_go(){
 	location.href="menuForm.do";
 };
-function update_go(form){
-	form.method="post";
-	form.action="cartUpdate.do";
-	form.submit();
+function update_go(pk,idx){
+	var id = "cnt"+idx;
+	var su = document.getElementById(id).value;
+	location.href="cartUpdate.do?cseq="+pk+"&cnt="+su;
 };
 function delte_go(){
 	location.href="deleteCart.do?cseq=${cartVO.cseq }";
@@ -95,6 +95,13 @@ table th{
 
 </head>
 <body>
+<c:if test="${!empty sessionScope.message }">
+	<script>
+		alert('${message}');
+	</script>	
+	<c:remove var="message" scope="session"/>
+</c:if>
+
 <form action="">
       <div class="container-fluid text-center">
          <div class="row content">
@@ -121,12 +128,12 @@ table th{
 						<th>상품가격</th>
 						<th>비고</th>
 						
-						<c:forEach items="${cartList}" var="cartVO">
+						<c:forEach items="${cartList}" var="cartVO" varStatus="status">
 						<tr>
 							<td><img src="<%=request.getContextPath()%>/images/menu/${cartVO.pname }.png" width="30px" height="30px"/>${cartVO.pname }</td>
 							<%-- <td>${cartVO.quantity }</td> --%>
 							<td>
-							<select name="quantity">
+							<select name="quantity" id="cnt${status.index }">
 	              					<c:forEach var="i" begin="1" end="10">
 	              						<c:choose>
 	              							<c:when test="${cartVO.quantity eq i }">
@@ -140,7 +147,7 @@ table th{
               					</select>
               				</td>
 							<td>${cartVO.price2*cartVO.quantity }원</td>
-							<td><a href="cartUpdate.do?cseq=${cartVO.cseq }">수정</a>/<a href="deleteCart.do?cseq=${cartVO.cseq }">삭제</a></td>
+							<td><a href="#" onclick="update_go(${cartVO.cseq},${status.index })">수정</a>/<a href="deleteCart.do?cseq=${cartVO.cseq }">삭제</a></td>
 							<!-- <td>
 								<button type="button" class="btn btn-warning btn-sm" onclick="">수정</button>/
 								<button type="button" class="btn btn-primary btn-sm" onclick="delete_go()">삭제</button>

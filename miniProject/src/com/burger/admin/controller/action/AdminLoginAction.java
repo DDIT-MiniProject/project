@@ -35,7 +35,7 @@ public class AdminLoginAction implements Action {
 	    if(result==1){
 	    	HttpSession session = request.getSession();
 	    	session.setAttribute("workerId", workerId);
-	    	session.setAttribute("loginUser","admin");
+	    	//session.setAttribute("loginUser","admin");
 	    	url="adminMain.do";
 	    } else if (result ==0){
 	    	msg ="아이디오류입니다.";

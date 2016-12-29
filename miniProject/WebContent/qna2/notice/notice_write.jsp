@@ -44,7 +44,7 @@
    border: 1px solid blue;
 }
 #abc{
-font-size: 30pt;
+font-size: 15pt;
 
 }
 </style>
@@ -81,7 +81,7 @@ font-size: 30pt;
 					</tr>
 					<tr>
 						<td>내용 </td>
-						<td><textarea name="bContent" rows="10" ></textarea> </td>
+						<td><textarea name="bContent" rows="10" cols="50" ></textarea> </td>
 					</tr>
 					<tr >
 						<td colspan="2"> <input type="submit" value="입력"> &nbsp;&nbsp; <a href="qnaNotice.do">목록보기</a></td>

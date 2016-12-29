@@ -48,7 +48,7 @@
       </tbody>
     </table>
     <br><br>
-    <h1>Pending Users</h1>
+    <!-- <h1>Pending Users</h1>
     <table class="table table-bordered">
     <thead>
       <tr>
@@ -73,7 +73,7 @@
       </tr>
       </tbody>
     </table>
-    
+     -->
     
     
 </form>

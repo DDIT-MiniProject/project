@@ -53,7 +53,7 @@
          <div class="row content">
             <div class="col-sm-2 sidenav">
                <p>
-                  <img src="<%=request.getContextPath()%>/images/menu2.png" id="memberCheck">
+                  <img src="images/menu2.png" id="memberCheck">
                </p>
                <p>
                   <a href="menuForm.do">스페셜오퍼</a>
@@ -77,7 +77,7 @@
             <div class="col-sm-8 text-left">
             	<strong><h2>세트메뉴 SET MENU</h2></strong>
                <p>
-                  <img src="<%=request.getContextPath()%>/images/주문시유의사항.png" id="warning">
+                  <img src="images/주문시유의사항.png" id="warning">
                </p>
               <%--  <div>
                	  <a href="#"><img src="<%=request.getContextPath()%>/images/setmenu/갈릭스테이크버거세트.png" width="180px" height="190px"></a>
@@ -106,7 +106,7 @@
                	 
                	 <c:forEach items="${productList}" var="productVO">
   
-     			 <a href="menuDetail.do?pseq=${productVO.pseq }"><img src="<%=request.getContextPath()%>/images/setmenu/${productVO.name }.png" width="180px" height="190px"></a>
+     			 <a href="menuDetail.do?pseq=${productVO.pseq }"><img src="images/menu/${productVO.name }.png" width="180px" height="190px"></a>
 
    				 </c:forEach>
     

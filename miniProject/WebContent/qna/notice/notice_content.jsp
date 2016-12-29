@@ -46,7 +46,7 @@
    border: 1px solid blue;
 }
 #abc{
-font-size: 10pt;
+font-size: 15pt;
 
 }
 </style>
@@ -86,15 +86,15 @@ font-size: 10pt;
 			</tr>
 			<tr>
 				<td> 이름 </td>
-				<td> <input type="text" name="bName" value="${content_view.bName}"></td>
+				<td> <input type="text" size="50" name="bName" value="${content_view.bName}"></td>
 			</tr>
 			<tr>
 				<td> 제목 </td>
-				<td> <input type="text" name="bTitle" value="${content_view.bTitle}"></td>
+				<td> <input type="text" size="50" name="bTitle" value="${content_view.bTitle}"></td>
 			</tr>
 			<tr>
 				<td> 내용 </td>
-				<td> <textarea rows="10" name="bContent" >${content_view.bContent}</textarea></td>
+				<td> <textarea rows="10" name="bContent" cols="50" >${content_view.bContent}</textarea></td>
 			</tr>
 			<tr >
 				<td colspan="2"> 
@@ -104,7 +104,7 @@ font-size: 10pt;
 				</a> &nbsp;&nbsp; 
 		
 				
-		
+		<a href="delete.do?bId=${content_view.bId}">삭제</a> &nbsp;&nbsp;
 				
 				
 				
