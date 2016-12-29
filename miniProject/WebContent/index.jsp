@@ -75,8 +75,8 @@ footer {
 }
 
 .slide{
-	margin-left:5%;
-	margin-right:5%;
+	margin-left:15%;
+	margin-right:15%;
 	height:500px;
 }
 </style>
@@ -134,7 +134,6 @@ footer {
 	</div>
 
 
-		<h3>Best Seller</h3>
 		<br>
 		<div class="row">
 			<table id="table0">
