@@ -28,6 +28,7 @@
 </head>
 <body>
 <br>
+<div id="center">
 <h2>상품 삭제</h2>
 <form name='frm' method="post" action="adminProductDelete.do">
  <div class="form-group">
@@ -59,6 +60,7 @@
     
 
 </form>
+</div>
 
 </body>
 </html>

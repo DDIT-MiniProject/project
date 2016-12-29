@@ -33,6 +33,7 @@
 
 <form name="frm" method="post" enctype="multipart/form-data" action="adminProductInsert.do">
 <div class="container">
+<div id="center">
   <h2>상품 등록</h2>
   <h3>Taste is King</h3>            
   <table id="list" class="table table-condensed">
@@ -101,6 +102,7 @@
       
       <button type="submit" class="btn btn-default">등록</button>
       <button type="button" class="btn btn-default" id="qnaBtn">취소</button>
+      </div>
       </div>
       </form>
 </body>

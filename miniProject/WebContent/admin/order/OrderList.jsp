@@ -25,7 +25,7 @@
 
   <div class="container">
   <h2>주문리스트</h2>
-  <form name="frm" method="post" action="adminOrderSearch.do">
+  <form name="frm" method="post" action="adminOrderSearch.do?tpage=${tpage }">
 <div class="input-group">
       <span class="input-group-addon"><i class="glyphicon glyphicon-shopping-cart"></i></span>
       <input id="email" type="text" class="form-control" name="key" placeholder="주문자 성명">
@@ -40,7 +40,7 @@
   <table class="table">
     <thead>
       <tr>
-        <th>배송번호(배송여부)</th>
+        <th>주문번호(결제여부)</th>
         <th>주문자</th>
         <th>상품명</th>
         <th>수량</th>
@@ -71,11 +71,14 @@
     <td><fmt:formatDate value="${orderVO.indate}" /></td>
   </tr>
   </c:forEach>
+  <tr>
+								<td colspan="5" style="text-align: center;">${paging}</td>
+							</tr>
   </tbody>
   </table>
   
   <input type="button" class="btn btn-default" style="width: 200px"
-      value="배송처리(입금확인)" id="savebtn" onclick="savebtnClick(this.form);">
+      value="결제처리" id="savebtn" onclick="savebtnClick(this.form);">
     
      </div>    
 </form>
