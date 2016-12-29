@@ -25,7 +25,22 @@ public class CartInsertAction implements Action {
 		String url = "cartForm.do";
 		String pseq = request.getParameter("pseq");
 		
+		ProductDAO productDAO=ProductDAO_iBatis.getInstance();   
+	    
+	    ProductVO productVO = null;
+		try {
+			productVO = productDAO.getProduct(pseq);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+				
 		HttpSession session = request.getSession();
+		session.setAttribute("productVO", productVO);
+		
 		MemberVO loginUser = (MemberVO) session.getAttribute("loginUser");
 		ProductVO product = (ProductVO) session.getAttribute("productVO");
 		
