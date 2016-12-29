@@ -98,13 +98,18 @@ font-size: 15pt;
 			</tr>
 			<tr >
 				<td colspan="2"> 
-
+	
+			<c:if test= "${ sessionScope.loginUser.getId() eq 'admin' }">
 					<input type="submit" value="수정"> &nbsp;&nbsp; 
+					<a href="delete.do?bId=${content_view.bId}">삭제</a> &nbsp;&nbsp;
+			</c:if>
+	
+	
+	
 				<a href="qnaNotice.do">목록보기
 				</a> &nbsp;&nbsp; 
 		
 				
-		<a href="delete.do?bId=${content_view.bId}">삭제</a> &nbsp;&nbsp;
 				
 				
 				
