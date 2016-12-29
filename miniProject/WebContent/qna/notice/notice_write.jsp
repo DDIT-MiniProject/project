@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@page import="com.burger.dto.MemberVO"%>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,6 +53,16 @@ font-size: 15pt;
 </style>
 </head>
 <body>
+
+<%!
+	MemberVO membervo;
+	String name;
+%>
+<%
+	/* id= (String)session.getAttribute("id"); */
+	membervo = (MemberVO)session.getAttribute("loginUser");
+	name = membervo.getName();
+%>
 <form action="qnaWrite.do" method="post">
     <div class="container-fluid text-center">
 		<div class="row content">
@@ -74,7 +86,9 @@ font-size: 15pt;
 			    <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
 					<tr>
 						<td>이름 </td>
-						<td><input type="text" name="bName" size = "50"> </td>
+						<!-- <td><input type="text" name="bName" size = "50"> </td> -->
+						<td> <input type="text" size="50" readonly name="bName" value="<%=name%>"></td>
+						
 					</tr>
 					<tr>
 						<td>제목 </td>

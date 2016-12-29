@@ -73,7 +73,8 @@ font-size: 15pt;
 			    <table width="500" cellpadding="0" cellspacing="0" border="1" class="table" id="abc">
 					<tr>
 						<td>이름 </td>
-						<td><input type="text" name="bName" size = "50"> </td>
+						<!-- <td><input type="text" name="bName" size = "50"> </td> -->
+						<td><input type="text" name="bName" size = "50" readonly value= ${sessionScope.loginUser.getName() }> </td>
 					</tr>
 					<tr>
 						<td>제목 </td>
