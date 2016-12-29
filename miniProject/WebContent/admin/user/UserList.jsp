@@ -20,8 +20,7 @@
 
 <div class="container">
 	<h2>회원리스트</h2>
-	<form name="frm" method="post"
-		action="adminMemberSearch.do">
+	<form name="frm" method="post" action="adminMemberSearch.do">
 		<div class="input-group">
 			<span class="input-group-addon"><i
 				class="glyphicon glyphicon-user"></i></span> <input id="email" type="text"
@@ -40,12 +39,11 @@
 					<tr>
 						<th>아이디(탈퇴여부)</th>
 						<th>이름</th>
-						<th>이메일</th>
-						<th>우편번호</th>
-						<th>주소
-						</th>
+
+
+						<th style="width:400px">주소</th>
 						<th>전화</th>
-						<th>가입일</th>
+
 					</tr>
 				</thead>
 				<tbody>
@@ -59,7 +57,7 @@
 
 							<c:forEach items="${memberList }" var="memberVO">
 								<tr>
-									<td>${memberVO.id}<c:choose>
+									<td><a href="adminMemberDetail.do?userid=${memberVO.id}">${memberVO.id}</a><c:choose>
 											<c:when test='${memberVO.useyn=="y"}'>
 												<input type="checkbox" name="useyn" disabled="disabled">
 											</c:when>
@@ -69,13 +67,12 @@
 											</c:otherwise>
 										</c:choose>
 									</td>
-									<td> ${memberVO.name} </td>
-    <td> ${memberVO.email} </td> 
-    <td> ${memberVO.zipNum} </td>
-    <td> ${memberVO.address} </td>
-    <td> ${memberVO.phone} </td> 
-    <td> <fmt:formatDate value="${memberVO.indate}"/></td>
-  </tr>
+									<td>${memberVO.name}</td>
+									
+									<td>${memberVO.address}</td>
+									<td>${memberVO.phone}</td>
+								
+								</tr>
 							</c:forEach>
 
 							<tr>

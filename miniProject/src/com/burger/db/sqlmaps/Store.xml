@@ -23,6 +23,12 @@
 	<select id="listStore" parameterClass="str" resultClass="store">
 		select * from store where name like '%'||#name#||'%' 
 	</select>
+	
+	<update id="insertStore" parameterClass="store">
+	    insert into store
+	    (name,address,time) 
+	    values(#name#,#address#,#time#)
+	</update>
 		
 	
 </sqlMap>

@@ -15,6 +15,7 @@
 
 <br>
 <br>
+    <div id="center">
 	<h1>Q&amp;A 답변</h1>
 	<form name="frm" method="post" action="adminQnaReply.do?qseq=${qnaVO.qseq }">
 		<input type="hidden" name="qseq">
@@ -70,6 +71,7 @@
 <button type="button" class="btn btn-default" id="qnaBtn">목록</button>
 </div>
 </form>
+</div>
 
 
 

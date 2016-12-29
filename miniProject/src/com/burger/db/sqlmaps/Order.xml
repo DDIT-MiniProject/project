@@ -49,4 +49,8 @@
 	<select id="newOrderSearch" resultClass="int">
 	    select count(*) from order_detail where result='1'
 	</select>
+	
+	<select id="totalOrderRecord" parameterClass="str" resultClass="int">
+		select count(*) from order_view where mname like '%'||#mname#||'%'
+	</select>
  </sqlMap>

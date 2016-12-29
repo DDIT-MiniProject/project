@@ -25,6 +25,67 @@ public class OrderDAO_iBatis implements OrderDAO {
 	public static OrderDAO_iBatis getInstance() {
 		return instance;
 	}
+	static int view_rows = 10; // 占쎈읂占쎌뵠筌욑옙占쎌벥 揶쏆뮇??
+	static int counts = 10;
+	
+	@Override
+	public int totalOrderRecord(String product_name) throws SQLException {
+		int total_pages = 0;
+		if (product_name.equals("")) {
+			product_name = "%";
+		}
+		total_pages = (Integer) client.queryForObject("totalOrderRecord",product_name);
+		return total_pages;
+	}
+	
+	@Override
+	public String pageNumber(int tpage, String name) throws SQLException {
+		String str = "";
+
+		int total_pages = totalOrderRecord(name);
+		int page_count = total_pages / counts + 1;
+
+		if (total_pages % counts == 0) {
+			page_count--;
+		}
+		if (tpage < 1) {
+			tpage = 1;
+		}
+
+		int start_page = tpage - (tpage % view_rows) + 1;
+		System.out.println(start_page+"?ㅽ??⑦럹?댁?");
+		int end_page = start_page + (counts - 1);
+
+		if (end_page > page_count) {
+			end_page = page_count;
+		}
+		if (start_page > view_rows) {
+			str += "<a href='adminOrderList.do?tpage=1&key="
+					+ name + "'>&lt;&lt;</a>&nbsp;&nbsp;";
+			str += "<a href='adminOrderList.do?tpage="
+					+ (start_page - 1);
+			str += "&key=<%=product_name%>'>&lt;</a>&nbsp;&nbsp;";
+		}
+
+		for (int i = start_page; i <= end_page; i++) {
+			if (i == tpage) {
+				str += "<font color=red>[" + i + "]&nbsp;&nbsp;</font>";
+			} else {
+				str += "<a href='adminOrderList.do?tpage="
+						+ i + "&key=" + name + "'>[" + i + "]</a>&nbsp;&nbsp;";
+			}
+		}
+
+		if (page_count > end_page) {
+			str += "<a href='adminOrderList.do?tpage="
+					+ (end_page + 1) + "&key=" + name
+					+ "'> &gt; </a>&nbsp;&nbsp;";
+			str += "<a href='adminOrderList.do?tpage="
+					+ page_count + "&key=" + name
+					+ "'> &gt; &gt; </a>&nbsp;&nbsp;";
+		}
+		return str;
+	}
 
 	@Override
 	public int insertOrder(ArrayList<CartVO> cartList, String id)

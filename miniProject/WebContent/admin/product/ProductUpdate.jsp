@@ -32,7 +32,8 @@
 
 <form name="frm" method="post" enctype="multipart/form-data" action="adminProductUpdate.do">
 <div class="container">
-  <h2>상품 등록</h2>
+<div id="center">
+  <h2>상품 수정</h2>
   <h3>Taste is King</h3>            
   <table id="list" class="table table-condensed">
     <thead>
@@ -69,8 +70,8 @@
       <tr>
     <th>상품이미지</th>
     <td>
-   
-      <input type="file" name="image">
+       
+      <input type="file" name="image"><img src="<%=request.getContextPath()%>/images/menu/${productVO.image}"/>
     </td>
   </tr>    
             
@@ -79,6 +80,7 @@
       
       <button type="submit" class="btn btn-default">변경</button>
        <button type="button" class="btn btn-default" id="qnaBtn">취소</button>
+       </div>
       </div>
       </form>
 </body>

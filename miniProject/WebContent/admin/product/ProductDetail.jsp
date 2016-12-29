@@ -31,6 +31,7 @@
 
 <form name="frm" method="post" enctype="multipart/form-data" action="adminProductUpdate.do">
 <div class="container">
+ <div id="center">
   <h2>상품 상세 정보</h2>
   <h3>Taste is King</h3>            
   <table id="list" class="table table-condensed">
@@ -86,6 +87,7 @@
       
       
       <button type="button" class="btn btn-default" id="qnaBtn">목록</button>
+      </div>
       </div>
       </form>
 </body>

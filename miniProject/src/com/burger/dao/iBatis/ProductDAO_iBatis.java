@@ -67,8 +67,8 @@ public class ProductDAO_iBatis implements ProductDAO {
 		return total_pages;
 	}
 
-	static int view_rows = 17; // 占쎈읂占쎌뵠筌욑옙占쎌벥 揶쏆뮇??
-	static int counts = 17; // 占쎈립 占쎈읂占쎌뵠筌욑옙占쎈퓠 占쎄돌占쏙옙占쎄땔 占쎄맒占쎈?占쎌벥 揶쏆뮇??
+	static int view_rows = 10; // 占쎈읂占쎌뵠筌욑옙占쎌벥 揶쏆뮇??
+	static int counts = 10; // 占쎈립 占쎈읂占쎌뵠筌욑옙占쎈퓠 占쎄돌占쏙옙占쎄땔 占쎄맒占쎈?占쎌벥 揶쏆뮇??
 	
 	@Override
 	public String pageNumber(int tpage, String name) throws SQLException {

@@ -13,9 +13,11 @@ public interface StoreDAO {
 	public ArrayList<StoreVO> selectAllStore() throws SQLException;
 
 	public String pageNumber(int tpage, String name) throws SQLException;
+	public String pageNumber1(int tpage, String name) throws SQLException;
 
 	public ArrayList<StoreVO> listStore(int tpage, String name)throws SQLException;
 
 	int storeTotalRecord(String name) throws SQLException;
+	public int insertStore(StoreVO store) throws SQLException;
 	
 }

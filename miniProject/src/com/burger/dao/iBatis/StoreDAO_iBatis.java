@@ -110,5 +110,53 @@ public class StoreDAO_iBatis implements StoreDAO {
 		}
 		return str;
 	}
+	
+	@Override
+	public String pageNumber1(int tpage, String name) throws SQLException {
+		String str = "";
+
+		int total_pages = storeTotalRecord(name);
+		int page_count = total_pages / counts + 1;
+
+		if (total_pages % counts == 0) {
+			page_count--;
+		}
+		if (tpage < 1) {
+			tpage = 1;
+		}
+
+		int start_page = tpage - (tpage % view_rows) + 1;
+		int end_page = start_page + (counts - 1);
+
+		if (end_page > page_count) {
+			end_page = page_count;
+		}
+		if (start_page > view_rows) {
+			str += "<a href='adminStoreSearch.do?tpage=1&key="+ name + "'>&lt;&lt;</a>&nbsp;&nbsp;";
+			str += "<a href='adminStoreSearch.do?tpage="+ (start_page - 1);
+			str += "&key=<%=name%>'>&lt;</a>&nbsp;&nbsp;";
+		}
+
+		for (int i = start_page; i <= end_page; i++) {
+			if (i == tpage) {
+				str += "<font color=red>[" + i + "]&nbsp;&nbsp;</font>";
+			} else {
+				str += "<a href='adminStoreSearch.do?tpage="+ i + "&key=" + name + "'>[" + i + "]</a>&nbsp;&nbsp;";
+			}
+		}
+
+		if (page_count > end_page) {
+			str += "<a href='adminStoreSearch.do?tpage="+ (end_page + 1) + "&key=" + name
+					+ "'> &gt; </a>&nbsp;&nbsp;";
+			str += "<a href='adminStoreSearch.do?tpage="+ page_count + "&key=" + name+ "'> &gt; &gt; </a>&nbsp;&nbsp;";
+		}
+		return str;
+	}
+
+	@Override
+	public int insertStore(StoreVO store) throws SQLException {
+		int result=client.update("insertStore", store);
+		return result;
+	}
 
 }
