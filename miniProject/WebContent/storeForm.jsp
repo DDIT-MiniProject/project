@@ -72,7 +72,7 @@ table{
 					</p>
 					<p>
 						<%-- <a href="<%=request.getContextPath()%>/orderForm.jsp">비회원주문 /</a> --%>
-						<a href="<%=request.getContextPath()%>/memberOrderForm.jsp">회원주문</a>
+						<a href="<%=request.getContextPath()%>/menuForm.do">회원주문</a>
 					</p>
 				</div>
 				<div class="col-sm-8 text-left" id="dd">
@@ -117,7 +117,10 @@ table{
 		<div id="map" style="width: 1100px; height: 400px;"></div>
 
 	</form>
+	
+	<!--                                                           -->
 	<script>
+	//이곳에서 작업이 이루어져서 div에 뿌려주면되는데... id = map x,y값 입력해서 map 뿌려줘보자.
 	var mapOptions = {
 			center : new naver.maps.LatLng(36.3509397, 127.3873025),
 			zoom : 20
@@ -134,6 +137,6 @@ table{
 		    icon: '<%=request.getContextPath()%>/images/pin.png'
 		});
 	</script>
-
+<!--                                                           -->
 </body>
 </html>
