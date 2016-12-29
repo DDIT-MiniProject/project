@@ -31,4 +31,8 @@
 	<select id="newQnaSearch" resultClass="int">
 	    select count(*) from qna where rep='1'
 	</select>
+	
+	<select id="epistasisList" resultClass="qna">
+	   SELECT * FROM qna WHERE ROWNUM &lt; '6'
+	</select>
 </sqlMap>

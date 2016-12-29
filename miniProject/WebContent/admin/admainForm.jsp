@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 
 <html>
 <head>
@@ -12,70 +14,68 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-  <style>
-  #tt{width:30px}
-  .badge{width:100px;
-           text-align:center}
- 
-  </style>
+<script type="text/javascript">
+ 	function savebtnClick(form){
+ 		form.action="adminOrderList.do";
+ 		form.method='post';
+ 		form.submit();
+ 	}
+  </script>
 </head>
 <body>
- <form name="frm" method="post" action="adminMemberList.do">
-<div class="container">
- <br>
-  <div class="well">
- 
-	  <h1><strong>환영합니다. 'Admin'님.</strong></h1>
-  	  <h3>오늘 하루 기분은 어떠신가요???</h3>
-  <button type="submit" class="btn btn-success">Manage Users>></button>
-  </div>
-</div>
+<form>
+<h1 style="text-align:center">Admin Main</h1>
+<hr>
+<table>
+<tr>
+<td>
+<div class="table-responsive">   
+<h3>주문 리스트 <span class="label label-danger">${orderResult }</span>  </h3>      
+  <table class="table">
+    <thead>
+      <tr>
+        <th>주문번호(결제여부)</th>
+        <th>주문자</th>
+        <th>상품명</th>
+        <th>전화</th>
+        <th>주문일</th>
+      </tr>
+    </thead>
+     <tbody>
+   <c:forEach items="${orderList}" var="orderVO">
+  <tr>
+    <td>
+      <c:choose>
+        <c:when test='${orderVO.result=="1"}'>
+        <span style="font-weight: bold; color: red">${orderVO.odseq}</span>
+        (<input type="checkbox" name="result" value="${orderVO.odseq}" disabled="disabled"> 미처리)
+        </c:when>
+        <c:otherwise>
+          <span style="font-weight: bold; color: green">${orderVO.odseq}</span>
+          (<input type="checkbox" name="result" checked="checked" disabled="disabled">처리완료)
+        </c:otherwise>
+      </c:choose>
+    </td>
+    <td>${orderVO.mname}</td> <td>${orderVO.pname}</td>
+   <td>${orderVO.phone}</td>
+    <td><fmt:formatDate value="${orderVO.indate}" /></td>
+  </tr>
+  </c:forEach>
+  </tbody>
+  </table>
+  
+  <input type="button" class="btn btn-default" style="width: 100px"
+      value="더보기" id="savebtn" onclick="savebtnClick(this.form);">
+    
+     </div>  
+     
+     </td>
+     
+     </table>  
 
-<table class="table table-hover">
-    <thead>
-      <tr>
-        <th><h3><strong>Total Users</strong></h3></th>
-        <th><h3><strong>New Orders</strong></h3></th>
-        <th><h3><strong>New Q&amp;A</strong></h3></th>
-      </tr>   
-    </thead>
-     <tbody>
-      <tr>
-        <td> <span class="badge"><h3>${result }</h3></span></td>
-        <td> <span class="badge"><h3>${orderResult }</h3></span></td>
-        <td> <span class="badge"><h3>${qnaResult }</h3></span></td>
-      </tr>
-      </tbody>
-    </table>
-    <br><br>
-    <!-- <h1>Pending Users</h1>
-    <table class="table table-bordered">
-    <thead>
-      <tr>
-        <th>Firstname</th>
-        <th>Lastname</th>
-        <th>Email</th>
-        <th>Email</th>
-        <th>Email</th>
-        <th>Email</th>
-      </tr>
-    </thead>
-     <tbody>
-      <tr>
-        <td>John</td>
-        <td>Doe</td>
-        <td>john@example.com</td>
-        <td>john@example.com</td>
-        <td>john@example.com</td>
-        <td><button type="button" class="btn btn-success">Success</button><br>
-        <button type="button" class="btn btn-danger">Danger</button>
-        </td>
-      </tr>
-      </tbody>
-    </table>
-     -->
+     </form>
+ 
     
-    
-</form>
+
 </body>
 </html>

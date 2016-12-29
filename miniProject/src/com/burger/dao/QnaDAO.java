@@ -20,4 +20,6 @@ public interface QnaDAO {
   public void updateQna(QnaVO qnaVO) throws SQLException;
   
   public int newQnaSearch() throws SQLException;
+  
+  public ArrayList<QnaVO> epistasisList() throws SQLException;
 }

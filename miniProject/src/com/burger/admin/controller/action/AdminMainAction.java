@@ -2,6 +2,7 @@ package com.burger.admin.controller.action;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -14,6 +15,7 @@ import com.burger.dao.QnaDAO;
 import com.burger.dao.iBatis.MemberDAO_iBatis;
 import com.burger.dao.iBatis.OrderDAO_iBatis;
 import com.burger.dao.iBatis.QnaDAO_iBatis;
+import com.burger.dto.OrderVO;
 
 public class AdminMainAction implements Action{
 
@@ -32,6 +34,8 @@ public class AdminMainAction implements Action{
 			request.setAttribute("orderResult", orderResult);
 			int qnaResult=qnaDAO.newQnaSearch();
 			request.setAttribute("qnaResult", qnaResult);
+			ArrayList<OrderVO> orderList = orderDAO.epistasisList();
+			request.setAttribute("orderList", orderList);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

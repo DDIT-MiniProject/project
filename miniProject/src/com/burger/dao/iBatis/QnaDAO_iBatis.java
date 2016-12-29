@@ -60,4 +60,10 @@ public class QnaDAO_iBatis implements QnaDAO {
         int result = (int) client.queryForObject("newQnaSearch", null);
 		return result;
 	}
+
+	@Override
+	public ArrayList<QnaVO> epistasisList() throws SQLException {
+		ArrayList<QnaVO> qnaList = (ArrayList<QnaVO>)client.queryForList("epistasisList", null);
+		return null;
+	}
 }
