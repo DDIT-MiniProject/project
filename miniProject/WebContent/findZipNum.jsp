@@ -21,7 +21,7 @@ body{
 }
 #popup h1 {
    font-size: 45px;
-    color:black;
+   color:#ff9900;
    font-weight: normal;
 }
 table#zipcode {
@@ -34,7 +34,7 @@ table#zipcode {
 table#zipcode th, table#zipcode td{   
    text-align: center;
    border-bottom: 1px dotted  #fff;  
-    color:black;  
+   color:black;  
 }
 table th, td{
   padding: 10px;

@@ -137,6 +137,13 @@ table {
 				<!-- <button type="button" class="btn btn-warning">확인</button> -->
 				</td>
 			</tr>
+			<tr>
+				<td><h5>결제방식</h5></td>
+				<td><input type="radio" name="pay" id="payDirect" value="payDirect">즉시결제&nbsp;&nbsp;&nbsp;
+				<input type="radio" name="pay" id="payDelivery" value="payDelivery">현장결제
+				</td>
+			</tr>
+			
 			
 			<tr>
 				<td></td>

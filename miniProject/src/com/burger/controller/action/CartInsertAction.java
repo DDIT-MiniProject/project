@@ -25,7 +25,7 @@ public class CartInsertAction implements Action {
 		String url = "cartForm.do";
 		String pseq = request.getParameter("pseq");
 		
-		ProductDAO productDAO=ProductDAO_iBatis.getInstance();   
+		ProductDAO productDAO=ProductDAO_iBatis.getInstance(); 
 	    
 	    ProductVO productVO = null;
 		try {

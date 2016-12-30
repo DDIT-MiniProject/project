@@ -28,6 +28,8 @@ public class AdminProductInsertAction implements Action {
 		String savePath = "images/menu";
 		ServletContext context = session.getServletContext();
 		String uploadFilePath = context.getRealPath(savePath);
+		
+		System.out.println(uploadFilePath);
 
 		MultipartRequest multi = new MultipartRequest(request, uploadFilePath,
 				sizeLimit, "UTF-8", new DefaultFileRenamePolicy());
