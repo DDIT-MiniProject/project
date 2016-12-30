@@ -88,7 +88,7 @@
 			<td>이름</td>
 			<td>제목</td>
 			<td>날짜</td>
-			<td>히트</td>
+			<td>조회수</td>
 		</tr>
 		<c:forEach items="${list}" var="dto">
 		<tr>
@@ -102,7 +102,10 @@
 		</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="5"> <a href="write_view2.do">글작성</a> </td>
+						<c:if test= "${ not empty sessionScope.loginUser }">
+							<td colspan="5"><a href="write_view2.do">일반 게시글작성</a></td>
+						</c:if>
+			<!-- <td colspan="5"> <a href="write_view2.do">글작성</a> </td> -->
 		</tr>
 	</table>
 				  

@@ -75,7 +75,7 @@
 						<a href="<%=request.getContextPath()%>/qnaNotice.do">공지사항</a>
 					</p>
 					<p>
-						<a href="<%=request.getContextPath()%>/qna/board/list.jsp">일반게시판</a>
+						<a href="<%=request.getContextPath()%>/qnaNotice2.do">일반게시판</a>
 					</p>
 
 

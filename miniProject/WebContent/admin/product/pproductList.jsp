@@ -16,6 +16,9 @@
 .input-group {
 	width: 400px
 }
+#imgDetail{
+	margin-left : 180px;
+}
 </style>
 <script type="text/javascript">
 	$(function() {
@@ -134,7 +137,7 @@
 																	<td><textarea class="form-control" name="content"
 																			readonly>${productVO.content }</textarea></td>
 																</tr>
-																<tr style="height:300px">
+																<tr style="height:30px">
 																	<th>상품이미지</th>
 																	<td>
 																	</td>
@@ -142,9 +145,9 @@
 
 															</tbody>
 														</table>
-														<img src="<%=request.getContextPath() %>/images/menu/${productVO.image}" />
-
-
+														<div id="imgDetail">
+														<img src="<%=request.getContextPath()%>/images/menu/${productVO.name}.png" />
+														</div>
 
 
 

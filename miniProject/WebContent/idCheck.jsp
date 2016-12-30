@@ -9,7 +9,6 @@
 #wrap {
 	margin: 0 20px;
 	padding-top: auto;
-	font-family: "1훈하얀고양이" ,"Times New Roman", Georgia, Serif;
 	font-size: 15pt;
 }
 h1 {
