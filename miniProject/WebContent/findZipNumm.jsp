@@ -9,8 +9,7 @@
 <title>우편 번호 검색</title>
 <style type="text/css">
 body{
-	background: black;
-	color: white;
+	color: balck;
 }
 #dongName{
 	color: black;
@@ -18,9 +17,7 @@ body{
 #popup{   
     padding: 0 10px;
     padding-top: auto;
-	font-family: "1훈하얀고양이" ,"Times New Roman", Georgia, Serif;
 	font-size: 15pt;
-	background: black; 
 }
 #popup h1 {
    font-family: "Times New Roman", Times, serif;
