@@ -160,8 +160,16 @@ public class OrderDAO_iBatis implements OrderDAO {
 		return oseqList;
 	}
 	@Override
-	public ArrayList<OrderVO> listOrder(String member_name) throws SQLException {
-		ArrayList<OrderVO> orderList=(ArrayList<OrderVO>)client.queryForList("listOrder",member_name );
+	public ArrayList<OrderVO> listOrder(int tpage,String member_name) throws SQLException {
+		int startRow = -1;
+		int endRow = -1;
+		int totalRecord = totalOrderRecord(member_name);
+
+		startRow = (tpage - 1) * counts ;
+		endRow = startRow + counts - 1;
+		if (endRow > totalRecord)
+			endRow = totalRecord;
+		ArrayList<OrderVO> orderList=(ArrayList<OrderVO>)client.queryForList("listOrder",member_name,startRow,counts );
 		return orderList;
 	}
 

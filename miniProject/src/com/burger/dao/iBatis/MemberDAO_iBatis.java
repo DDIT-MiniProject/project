@@ -11,7 +11,8 @@ import com.burger.dto.MemberVO;
 public class MemberDAO_iBatis implements MemberDAO {
 	private SqlMapClient client = IBatisDBConnector.getSqlMapInstance();
 	private static MemberDAO_iBatis instance = new MemberDAO_iBatis();
-
+	static int view_rows = 10; // 占쎈읂占쎌뵠筌욑옙占쎌벥 揶쏆뮇??
+	static int counts = 10; // 占쎈립 占쎈읂占쎌뵠筌욑옙占쎈퓠 占쎄돌占쏙옙占쎄땔 占쎄맒占쎈?占쎌벥 揶쏆뮇??
 	private MemberDAO_iBatis() {
 	}
 
@@ -49,12 +50,20 @@ public class MemberDAO_iBatis implements MemberDAO {
 	}
 
 	@Override
-	public ArrayList<MemberVO> listMember(String member_name)
+	public ArrayList<MemberVO> listMember(int tpage,String member_name)
 			throws SQLException {
+		int startRow = -1;
+		int endRow = -1;
 		if (member_name == "") {
 			member_name= "%";
 		}
-		ArrayList<MemberVO> memberList =(ArrayList<MemberVO>)client.queryForList("listMember",member_name);		
+		int totalRecord = totalRecord(member_name);
+
+		startRow = (tpage - 1) * counts ;
+		endRow = startRow + counts - 1;
+		if (endRow > totalRecord)
+			endRow = totalRecord;
+		ArrayList<MemberVO> memberList =(ArrayList<MemberVO>)client.queryForList("listMember",member_name,startRow,counts);		
 		return memberList;
 	}
 
@@ -78,8 +87,8 @@ public class MemberDAO_iBatis implements MemberDAO {
 		total_pages = (Integer) client.queryForObject("totalMember",product_name);
 		return total_pages;
 	}
-	static int view_rows = 10; // 占쎈읂占쎌뵠筌욑옙占쎌벥 揶쏆뮇??
-	static int counts = 10; // 占쎈립 占쎈읂占쎌뵠筌욑옙占쎈퓠 占쎄돌占쏙옙占쎄땔 占쎄맒占쎈?占쎌벥 揶쏆뮇??
+	
+	
 	
 	@Override
 	public String pageNumber(int tpage, String name) throws SQLException {
@@ -107,7 +116,7 @@ public class MemberDAO_iBatis implements MemberDAO {
 					+ name + "'>&lt;&lt;</a>&nbsp;&nbsp;";
 			str += "<a href='adminMemberList.do?tpage="
 					+ (start_page - 1);
-			str += "&key=<%=product_name%>'>&lt;</a>&nbsp;&nbsp;";
+			str += "&key=<%=member_name%>'>&lt;</a>&nbsp;&nbsp;";
 		}
 
 		for (int i = start_page; i <= end_page; i++) {
@@ -128,7 +137,5 @@ public class MemberDAO_iBatis implements MemberDAO {
 					+ "'> &gt; &gt; </a>&nbsp;&nbsp;";
 		}
 		return str;
-		
 	}
-
 }

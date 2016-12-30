@@ -10,7 +10,7 @@ public interface MemberDAO {
 	public MemberVO getMember(String id) throws SQLException;
 	public int insertMember(MemberVO memberVO) throws SQLException;
 	public MemberVO searchMember(String pwd) throws SQLException;
-	public ArrayList<MemberVO> listMember(String member_name) throws SQLException;
+	public ArrayList<MemberVO> listMember(int tpage,String member_name) throws SQLException;
 	public int totalMember(String member_name) throws SQLException;
 	public String pageNumber(int tpage, String name) throws SQLException;
 	public int totalRecord(String product_name) throws SQLException;
