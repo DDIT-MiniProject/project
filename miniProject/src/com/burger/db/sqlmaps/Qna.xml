@@ -39,4 +39,8 @@
 	<select id="SearchQnaList" parameterClass="str" resultClass="qna">
 	   select * from qna where id like '%'||#id#||'%'
 	</select>
+	
+	<select id="TotalQna" resultClass="int">
+	    select count(*) from qna
+	</select>
 </sqlMap>

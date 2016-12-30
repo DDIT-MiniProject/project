@@ -57,6 +57,9 @@
 					<td><fmt:formatDate value="${qnaVO.indate}" /></td>
 				</tr>
 			</c:forEach>
+			<tr>
+								<td colspan="4" style="text-align: center;">${paging}</td>
+							</tr>
     </tbody>
   </table>
   </form>

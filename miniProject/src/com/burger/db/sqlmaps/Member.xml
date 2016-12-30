@@ -35,7 +35,7 @@
 	</select>
 	
 	<select id="totalMember" parameterClass="str" resultClass="int">
-	    select count(*) from member where name like '%'||#name#||'%' and useyn='y'
+	    select count(*) from member where name like '%'||#name#||'%'
 	</select>
 	
 	

@@ -12,4 +12,6 @@ public interface MemberDAO {
 	public MemberVO searchMember(String pwd) throws SQLException;
 	public ArrayList<MemberVO> listMember(String member_name) throws SQLException;
 	public int totalMember(String member_name) throws SQLException;
+	public String pageNumber(int tpage, String name) throws SQLException;
+	public int totalRecord(String product_name) throws SQLException;
 }
