@@ -21,14 +21,31 @@ public class AdminMemberSearchAction implements Action {
 		request.setCharacterEncoding("utf-8");
 		String url="user/UserList.jsp";
 		
-		String key=request.getParameter("key");
+		 request.setCharacterEncoding("utf-8");
+		    
+		    String key=request.getParameter("key");
+			String tpage=request.getParameter("tpage");
+			
+			if(request.getParameter("key")!=null){
+				key=request.getParameter("key");
+			}else if(request.getParameter("key")==null){
+				key="";
+			}
+			 if(tpage== null){
+			      tpage="1"; //占쎌겱占쎌삺 占쎈읂占쎌뵠筌욑옙 (default 1)                        
+			    }else if(tpage.equals("")){
+			         
+			    }
+			 System.out.println(tpage+"xtttttt");
+			 request.setAttribute("key", key);
+			 request.setAttribute("tpage",tpage);
 		
 		MemberDAO memberDAO = MemberDAO_iBatis.getInstance();
 		ArrayList<MemberVO> memberList=null;
 		
 		
 		try {
-			memberList=memberDAO.listMember(key);
+			memberList=memberDAO.listMember(Integer.parseInt(tpage),key);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -41,7 +41,7 @@ public class AdminOrderSearchAction implements Action{
 		String paging =null;
 		
 		try {
-			orderList = orderDAO.listOrder(key);
+			orderList = orderDAO.listOrder(Integer.parseInt(tpage),key);
 			paging=orderDAO.pageNumber(Integer.parseInt(tpage), key);
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block

@@ -17,11 +17,13 @@ public class AdminMemberListAction implements Action {
 
   @Override
   public String execute(HttpServletRequest request, HttpServletResponse response)
-      throws ServletException, IOException {
-
+      throws ServletException, IOException { 
+	  
+	  request.setCharacterEncoding("utf-8");
     String url = "user/UserList.jsp";
     String key=request.getParameter("key");
 	String tpage=request.getParameter("tpage");
+	
 	if(request.getParameter("key")!=null){
 		key=request.getParameter("key");
 	}else if(request.getParameter("key")==null){
@@ -32,6 +34,7 @@ public class AdminMemberListAction implements Action {
 	    }else if(tpage.equals("")){
 	         
 	    }
+	 System.out.println(tpage+"xtttttt");
 	 request.setAttribute("key", key);
 	 request.setAttribute("tpage",tpage);
 
@@ -39,7 +42,7 @@ public class AdminMemberListAction implements Action {
     ArrayList<MemberVO> memberList=null;
     String paging = null;
 	try {
-		memberList = memberDAO.listMember(key);
+		memberList = memberDAO.listMember(Integer.parseInt(tpage),key);
 		paging = memberDAO.pageNumber(Integer.parseInt(tpage), key);
 	} catch (SQLException e) {
 		e.printStackTrace();

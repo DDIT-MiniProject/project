@@ -28,7 +28,7 @@ public interface OrderDAO {
 	 * 관리자 모드에서 사용되는 메소드 * *
 	 */
 	public int totalOrderRecord(String mname) throws SQLException;
-	public ArrayList<OrderVO> listOrder(String member_name) throws SQLException;
+	public ArrayList<OrderVO> listOrder(int tpage,String member_name) throws SQLException;
 	
 	public void updateOrderResult(String oseq) throws SQLException;
 	
