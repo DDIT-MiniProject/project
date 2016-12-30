@@ -22,7 +22,7 @@ body{
 #popup h1 {
    font-family: "Times New Roman", Times, serif;
    font-size: 45px;
-   color: #CCC;
+   color: #ff9900;
    font-weight: normal;
 }
 table#zipcode {
@@ -35,7 +35,6 @@ table#zipcode {
 table#zipcode th, table#zipcode td{   
    text-align: center;
    border-bottom: 1px dotted  #fff;  
-   color:#FFF;   
 }
 table th, td{
   padding: 10px;
@@ -44,7 +43,6 @@ table#zipcode  a{
     display:block; 
     height:20px;
     text-decoration:none;
-    color:#fff;
     padding: 10px;
 }
 table#zipcode a:hover{
