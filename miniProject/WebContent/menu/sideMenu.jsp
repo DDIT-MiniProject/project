@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-   pageEncoding="UTF-8"%>
+	pageEncoding="UTF-8"%>
 <%@ page trimDirectiveWhitespaces="true"%>
-<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,11 +9,19 @@
 <title>BURGERKING MENU</title>
 
 <link rel="stylesheet"
-   href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <script
-   src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script
-   src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+<link rel="stylesheet"
+	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script
+	src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script
+	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	
 <style>
 /* Set height of the grid so .sidenav can be 100% (adjust as needed) */
 .row.content {
@@ -61,47 +69,58 @@ function order_go(){
 </script>
 </head>
 <body>
-   <form action="">
-      <div class="container-fluid text-center">
-         <div class="row content">
-            <div class="col-sm-2 sidenav">
-               <p>
-                  <img src="images/menu2.png" id="memberCheck">
-               </p>
-               <p>
-                  <a href="menuForm.do">스페셜오퍼</a>
-               </p>
-               <p>
-                  <a href="deliveryPack.do">딜리버리팩</a>
-               </p>
-               <p>
-                  <a href="setMenu.do">세트메뉴</a>
-               </p>
-               <p>
-                  <a href="burgerMenu.do">버거</a>
-               </p>
-               <p>
-                  <a href="sideMenu.do">사이드</a>
-               </p>
-               <p>
-                  <a href="drinkMenu.do">드링크</a>
-               </p>
-            </div>
-            
-            <div class="container">
-            <div class="col-sm-8 text-left">
-            	<strong><h2>사이드메뉴 SIDE MENU</h2></strong>
-               <p>
-                  <img src="images/주문시유의사항.png" id="warning">
-               </p>
+	
+		<form action="">
+			<div class="container-fluid text-center">
+				<div class="row content">
+					<div class="col-sm-2 sidenav">
+						<p>
+							<img src="images/menu2.png" id="memberCheck">
+						</p>
+						<p>
+							<a href="menuForm.do">스페셜오퍼</a>
+						</p>
+						<p>
+							<a href="deliveryPack.do">딜리버리팩</a>
+						</p>
+						<p>
+							<a href="setMenu.do">세트메뉴</a>
+						</p>
+						<p>
+							<a href="burgerMenu.do">버거</a>
+						</p>
+						<p>
+							<a href="sideMenu.do">사이드</a>
+						</p>
+						<p>
+							<a href="drinkMenu.do">드링크</a>
+						</p>
+					</div>
+					<div class="container">
+					<div class="col-sm-8 text-left">
+						<strong><h2>사이드메뉴 SIDE MENU</h2></strong>
+						<p>
+							<img src="images/주문시유의사항.png" id="warning">
+						</p>
+						<%-- <c:forEach var="special" items="list">
                <div>
-               	  <%-- <a href="#"><img src="<%=request.getContextPath()%>/images/delivery/듀오팩.png" width="180px" height="190px"></a>
-               	  <a href="#"><img src="<%=request.getContextPath()%>/images/delivery/싱글팩.png" width="180px" height="190px"></a> --%>
-               	  
-               	  <c:forEach items="${productList}" var="productVO">
-  
-     			 <%-- <a href="menuDetail.do?pseq=${productVO.pseq }"><img src="images/menu/${productVO.name }.png" width="180px" height="190px"></a> --%>
-     			 <a href="#" data-toggle="modal"	data-target="#${productVO.pseq }"><img	src="images/menu/${productVO.name }.png" width="150px"
+               	  <a href="#"><img src="<%=request.getContextPath()%>/images/specialmenu/리치테이스트팩1.png" width="180px" height="190px"></a>
+               	  <a href="#"><img src="<%=request.getContextPath()%>/images/specialmenu/리치테이스트팩2.png" width="180px" height="190px"></a>
+               	  <a href="#"><img src="<%=request.getContextPath()%>/images/specialmenu/리치테이스트팩3.png" width="180px" height="190px"></a>
+               	  <a href="#"><img src="<%=request.getContextPath()%>/images/specialmenu/스테이크버거.png" width="180px" height="190px"></a>
+               	 </div>
+               	 <div>
+               	  <a href="#"><img src="<%=request.getContextPath()%>/images/specialmenu/스테이크버거세트.png" width="180px" height="190px"></a>
+               	  <a href="#"><img src="<%=request.getContextPath()%>/images/specialmenu/리치테이스트오리지널.png" width="180px" height="190px"></a>
+               	  <a href="#"><img src="<%=request.getContextPath()%>/images/specialmenu/리치테이스트오리지널세트.png" width="180px" height="190px"></a>
+               </div>
+               </c:forEach> --%>
+
+
+						<c:forEach items="${productList}" var="productVO" varStatus="status">
+
+							<%-- <a href="menuDetail.do?pseq=${productVO.pseq }"><img src="images/menu/${productVO.name }.png" width="180px" height="190px"></a> --%>
+							<a href="#" data-toggle="modal"	data-target="#${productVO.pseq }"><img	src="images/menu/${productVO.name }.png" width="150px"
 								height="170px"></a>
 							<!-- Modal -->
 							<div class="modal fade" id="${productVO.pseq }" role="dialog">
@@ -136,15 +155,16 @@ function order_go(){
 								</div>
 							</div>
 
-   				 </c:forEach>
-   				 </div>
-               	  
-               	 </div>
-            </div>
-         </div>
-      </div>
 
-   </form>
+
+						</c:forEach>
+		</div>
+					</div>
+				</div>
+			</div>
+
+		</form>
+	
 
 </body>
 </html>
