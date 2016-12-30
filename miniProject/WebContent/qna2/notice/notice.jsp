@@ -102,7 +102,10 @@
 		</tr>
 		</c:forEach>
 		<tr>
-			<td colspan="5"> <a href="write_view2.do">글작성</a> </td>
+						<c:if test= "${ not empty sessionScope.loginUser }">
+							<td colspan="5"><a href="write_view2.do">일반 게시글작성</a></td>
+						</c:if>
+			<!-- <td colspan="5"> <a href="write_view2.do">글작성</a> </td> -->
 		</tr>
 	</table>
 				  
