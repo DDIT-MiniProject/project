@@ -42,7 +42,7 @@ public class OrderInsertAction implements Action{
 				orderDAO.insertOrder(cartList, loginUser.getId());
 				int totalPrice = 0;
 				for (CartVO cartVO : cartList) {
-					totalPrice += cartVO.getPrice2() * cartVO.getQuantity();
+					//totalPrice += cartVO.getPrice2() * cartVO.getQuantity();
 					int maxOseq = orderDAO.insertOrder(cartList, loginUser.getId());
 					System.out.println(maxOseq);
 					orderDAO.insertOrderDetail(cartVO, maxOseq);
@@ -50,8 +50,8 @@ public class OrderInsertAction implements Action{
 				}
 				
 				request.setAttribute("orderVO", orderVO);
-				request.setAttribute("cartList", cartList);
-				request.setAttribute("totalPrice", totalPrice);
+				//request.setAttribute("cartList", cartList);
+				//request.setAttribute("totalPrice", totalPrice);
 			} catch (SQLException e) {
 				e.printStackTrace();
 			}
