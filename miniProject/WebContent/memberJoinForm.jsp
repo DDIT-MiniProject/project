@@ -100,16 +100,12 @@ function searchZip(form){
 	margin: auto;
 	width: 80%;
 	color: gray;
-	font-family: "궁서체" ,"Times New Roman", Georgia, Serif;
+	font-family: "Times New Roman", Georgia, Serif;
 }
 #joinTable{
 	margin: auto;
 	font-size: 17pt;
 }
-/* #btn{
-	font-size: 30pt;
-	font-family: "1훈하얀고양이" ,"Times New Roman", Georgia, Serif;
-} */
 </style>
 </head>
 <body>
