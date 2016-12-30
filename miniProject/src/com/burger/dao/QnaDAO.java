@@ -24,5 +24,7 @@ public interface QnaDAO {
   public ArrayList<QnaVO> epistasisQnaList() throws SQLException;
   
   public ArrayList<QnaVO> SearchQnaList(String id) throws SQLException;
+  public String pageNumber(int tpage, String name) throws SQLException;
+  public int totalRecord(String product_name) throws SQLException;
   
 }
