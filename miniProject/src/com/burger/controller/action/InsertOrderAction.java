@@ -17,7 +17,7 @@ import com.burger.dto.CartVO;
 import com.burger.dto.MemberVO;
 import com.burger.dto.OrderVO;
 
-public class OrderInsertAction implements Action{
+public class InsertOrderAction implements Action{
 
 	@Override
 	public String execute(HttpServletRequest request,
